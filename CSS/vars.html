@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>variables</title>
+
+    <style>
+        :root {
+            --back: black;
+        }
+
+        @property --front {
+            syntax: "<color>";
+            inherits: true;
+            initial-value: white;
+        }
+
+        #one {
+            --back: blue;
+            color: var(--front);
+            background-color: var(--back);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="one">this is first</div>
+</body>
+
+</html>
