@@ -1,0 +1,26 @@
+input:focus {
+    border: 5px solid salmon;
+    box-shadow: 50px;
+}
+
+input:focus+span::after {
+    content: " is being typed...  ";
+}
+
+#one,
+#two {
+    margin: 50px;
+}
+
+#one:hover #two {
+    display: block;
+}
+
+#two {
+    display: none;
+}
+
+#two::first-letter {
+    font-weight: bolder;
+    font-size: larger;
+}

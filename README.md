@@ -14,10 +14,8 @@ Contains examples and assignments related to HTML and CSS, focusing on the follo
 7. Audio, Video
 8. Graphics: SVG, Canvas, Favicon
 9. APIs 
-10. CSS Basics: fonts, positions, z-index
-11. Colors: formats, gradient, opacity, shadows
-12. Animations: 2d, 3d
-13. Peudo: classes, elements
-14. Variables
-15. Box Model: margin, border, padding, content
-16. RWD: flexbox, grid, media queries
+10. CSS Basics: id, class, tag selectors, fonts, images, box model, colors
+11. Animations: 2d, 3d, transitions, transforms
+12. Pseudo: classes, elements, positions
+13. Variables, gradients, opacity, shadows, z-index
+14. RWD: flexbox, grid, media queries
