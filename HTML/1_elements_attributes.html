@@ -1,0 +1,86 @@
+<!-- DOCTYPE contains HTML version and file type. It has a DTD. Here it shows HTML5 -->
+<!DOCTYPE html>
+
+<!-- <html> is root of document, but it is optional -->
+<!-- "lang" is the language of the content -->
+<html lang="en">
+
+
+<head>
+    <!-- <head> is the container of metadata, also optional -->
+    <!-- <meta> tags are used to describe the data about document.
+        Sets charset, viewport, author, description for browsers/serch engines. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- refreshes doc every 30 secs -->
+    <meta http-equiv="refresh" content="30">
+
+    <!-- title of doc, isplayed on top of tab -->
+    <title>1. Elements and Attributes</title>
+
+    <style>
+        /* id to access the element uniquely, 1 id of each element */
+        #container {
+            background-color: bisque;
+            color: brown;
+        }
+
+        /* to access selected similar elements, 1 class for many elements */
+        .fonts {
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- main content of the html doc, <body> is also optional -->
+
+    <!-- span, inline content -->
+    <span>h1 - h6</span><span>, div, p</span><span> - this is line uses multiple spans</span>
+
+    <!-- range of headings, search engines use the headings to index the structure and content of your web pages.-->
+    <h1>Biggest Heading</h1>
+    <h6>Smallest Heading</h6>
+
+    <!-- div, block content, mostly used as a container -->
+    <div id="container">
+
+        <!-- p, block content, used to display text, "title" is for tooltips, ignores multi whitespaces -->
+        <!-- br, does not require end tag -->
+        <p title="showcase of line break">Paragraph with tooltip and <br> line break </p>
+
+        <!-- horizontal rules for separating content -->
+        <hr>
+
+        <!-- vaious tags that format content in between
+         the ones with semantic meanings are given importance.
+         eg: <em> is given emphasis by screen reader, not <i> -->
+        <i class="fonts">this</i> <em class="fonts">text</em>
+
+        <!-- bold and strong -->
+        <b class="fonts">is</b> <strong class="fonts">using</strong>
+
+        <small class="fonts">styling</small>
+        <del class="fonts">for</del>
+        <u class="fonts">to</u>
+        <mark class="fonts">showcase</mark><br>
+        x<sup class="fonts">2</sup>, H<sub class="fonts">2</sub>O
+
+        <!-- quotaions, other are <blockquote>, cite -->
+        <q>quoting someone</q>
+        <abbr title="World Health Organization">W&nbsp;H&nbsp;O</abbr>
+
+        <br>
+        <bdo dir="rtl">The quick brown fox jumps over the lazy dog</bdo>
+
+        <!-- pre, to retain original formatting of text -->
+        <pre>
+            using
+            pre
+            tag
+        </pre>
+    </div>
+</body>
+
+</html>
