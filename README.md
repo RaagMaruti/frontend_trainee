@@ -17,5 +17,5 @@ Contains examples and assignments related to HTML and CSS, focusing on the follo
 10. CSS Basics: id, class, tag selectors, fonts, images, box model, colors
 11. Animations: 2d, 3d, transitions, transforms
 12. Pseudo: classes, elements, positions
-13. Variables, gradients, opacity, shadows, z-index
+13. Variables
 14. RWD: flexbox, grid, media queries
