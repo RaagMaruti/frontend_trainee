@@ -1,6 +1,4 @@
-=
 # Frontend - Training
-
 This repository contains the projects and assignments completed during the internship program. The structure and purpose of each folder are detailed below.
 
 ## Folder Structure
@@ -27,4 +25,3 @@ Contains examples and assignments related to CSS, focusing on the following:
 5. Variables
 6. Box Model: margin, border, padding, content
 7. RWD: flexbox, grid, media queries
-# Frontend_Trainee
