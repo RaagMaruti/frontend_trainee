@@ -4,118 +4,122 @@
  4 - 450px
  */
 
-
-
-
-
-
-
 #container {
-    font-family: 'Poppins';
-    width: 1192px;
-    height: 612px;
-    margin: 40px auto;
+	font-family: "Poppins";
+	width: 1192px;
+	height: 612px;
+	margin: 40px auto;
 }
 
 #header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 1139px;
-    height: 112px;
-    margin: 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 1139px;
+	height: 112px;
+	margin: 24px;
 }
 
 #heading {
-    width: 244px;
-    height: 56px;
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 56px;
-    margin-bottom: -4px;
+	width: 244px;
+	height: 56px;
+	font-weight: 600;
+	font-size: 40px;
+	line-height: 56px;
+	margin-bottom: -4px;
 }
 
 #subheading {
-    width: 1139px;
-    height: 32px;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 32px;
+	width: 1139px;
+	height: 32px;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 32px;
 }
 
 #content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 1192px;
-    margin: 20px;
-}
-
-.cards {
-    color: white;
-    width: 182px;
-    height: 392px;
-    border-radius: 6px;
-    /* opacity: 0.3; */
-}
-
-.title {
-    width: 182px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 1192px;
+	margin: 20px;
 }
 
 .frames {
-    margin: 8px;
+	height: 600px;
+	margin: 8px;
+
+	/* test2 */
+	/* position: relative; */
+}
+
+.cards {
+	color: white;
+	width: 182px;
+	height: 392px;
+	border-radius: 6px;
+	opacity: 0.4;
+	transition: all 1s ease-in-out;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/* test2 */
+	/* position: fixed; */
+	/* z-index: -1; */
+}
+
+.title {
+	width: 182px;
 }
 
 .cards:hover {
-    width: 384px;
+	width: 384px;
+	opacity: 1;
 }
 
 .cardTexts {
-    display: none;
+	display: none;
+	margin-left: 24px;
+	transition: all 1s ease-in-out;
 }
 
 .cards:hover .cardTexts {
-    display: block;
-    margin-top: 97px;
-    margin-left: 24px;
-    margin-right: 47px;
-    /* width: 316px;
-    height: 197px; */
+	display: block;
+	width: 316px;
+	height: 197px;
 }
 
-
 .cardHeadings {
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 42.24px;
+	font-weight: 600;
+	font-size: 32px;
+	line-height: 42.24px;
 }
 
 .cardDescs {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 21px;
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 21px;
 }
 
-
 #card1 {
-    background-image: url(./media1/card1.jpeg);
+	background-image: url(./media1/card1.jpeg);
 }
 
 #card2 {
-    background-image: url(./media1/card2.jpeg);
+	background-image: url(./media1/card2.jpeg);
 }
 
 #card3 {
-    background-image: url(./media1/card3.jpeg);
+	background-image: url(./media1/card3.jpeg);
 }
 
 #card4 {
-    background-image: url(./media1/card4.jpeg);
+	background-image: url(./media1/card4.jpeg);
 }
 
 #card5 {
-    background-image: url(./media1/card5.jpeg);
+	background-image: url(./media1/card5.jpeg);
 }

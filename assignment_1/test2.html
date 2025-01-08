@@ -1,10 +1,11 @@
 <div class="myDiv">
     <div class="bg"></div>
-    Hi there
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur alias saepe recusandae non, magnam eius hic,
-    molestias perspiciatis sit blanditiis consectetur totam minus optio qui nobis repudiandae ipsum. Ad impedit corrupti
-    dignissimos assumenda sapiente quia labore placeat ratione, doloremque accusamus eaque possimus animi, molestias at
-    magni molestiae fugiat, maiores fuga.
+    <div id="content">Hi there
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequatur alias saepe recusandae non, magnam eius
+        hic, molestias perspiciatis sit blanditiis consectetur totam minus optio qui nobis repudiandae ipsum. Ad impedit
+        corrupti dignissimos assumenda sapiente quia labore placeat ratione, doloremque accusamus eaque possimus animi,
+        molestias at magni molestiae fugiat, maiores fuga.
+    </div>
 </div>
 
 <title>test 2</title>
@@ -15,6 +16,9 @@
         z-index: 1;
         width: 500px;
         height: 500px;
+        margin: 100px;
+        display: flex;
+        align-items: center;
     }
 
     .myDiv .bg {
@@ -28,5 +32,23 @@
         opacity: .4;
         width: 500px;
         height: 500px;
+        transition: all 2s ease-in-out;
+    }
+
+    #content {
+        display: none;
+        opacity: .4;
+        margin: 50px;
+        transition: all 2s ease-in-out;
+    }
+
+    .myDiv:hover #content {
+        opacity: 1;
+        display: block;
+    }
+
+    .myDiv:hover .bg {
+        opacity: 1;
+        width: 1000px;
     }
 </style>
