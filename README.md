@@ -19,3 +19,4 @@ Contains examples and assignments related to HTML and CSS, focusing on the follo
 12. Pseudo: classes, elements, positions
 13. Variables
 14. RWD: flexbox, grid, media queries
+15. Positions and Gradients
