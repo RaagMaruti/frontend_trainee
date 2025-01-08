@@ -18,9 +18,9 @@
 
 .container {
     display: grid;
-    width: 2000px;
     grid-template-columns: auto auto auto auto;
     gap: 50px;
+    margin: 0 50px
 }
 
 .two {
@@ -28,7 +28,6 @@
     color: white;
     border: 0.5vh black solid;
     padding: 1vw;
-    width: 33%;
     text-align: center;
     outline: 0.5vh ridge rebeccapurple;
     text-transform: uppercase;
@@ -37,6 +36,50 @@
 .two:first-child {
     grid-column: span 2;
     grid-row: span 2;
+}
+
+.two:last-child {
+    grid-area: 4 / 1 / 5 / 5;
+}
+
+
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: menu;
+}
+
+.item3 {
+    grid-area: main;
+}
+
+.item4 {
+    grid-area: right;
+}
+
+.item5 {
+    grid-area: footer;
+}
+
+.grid-container {
+    margin: 5vh;
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'menu main main main right right'
+        'menu footer footer footer footer footer';
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
 }
 
 
