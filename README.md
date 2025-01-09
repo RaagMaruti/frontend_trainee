@@ -20,3 +20,6 @@ Contains examples and assignments related to HTML and CSS, focusing on the follo
 13. Variables
 14. RWD: flexbox, grid, media queries
 15. Positions and Gradients
+
+### 02.assignment_1
+Contains assignment related to HTML and CSS. A webpage reflecting "Our Services" section from our website's Home Page.
