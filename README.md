@@ -21,8 +21,11 @@ Contains examples and assignments related to HTML and CSS, focusing on the follo
 14. RWD: flexbox, grid, media queries
 15. Positions and Gradients
 
-### 2.assignment_1
+### 2.assignment-1
 Contains assignment related to HTML and CSS. A webpage reflecting "Our Services" section from our website.
+
+### 3.assignment-2
+Contains assignment related to Sanity CMS.
 
 ### 3.javascript
 Contains examples and assignments related to JavaScript, focusing on the following:
