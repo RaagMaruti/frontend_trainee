@@ -27,6 +27,6 @@ Contains assignment related to HTML and CSS. A webpage reflecting "Our Services"
 ### 3.assignment-2
 Contains assignment related to Sanity CMS.
 
-### 3.javascript
+### 4.javascript
 Contains examples and assignments related to JavaScript, focusing on the following:
 1. Basics: variables, scopes, data types, loops, maps, sets, template strings
