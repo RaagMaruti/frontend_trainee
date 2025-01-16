@@ -12,14 +12,14 @@ export default defineType({
             type: "image",
         }),
         defineField({
-            name: "content",
+            name: "text",
             type: "string",
         }),
         defineField({
             name: "slug",
             type: "slug",
             options: {
-                source: "content",
+                source: "text",
             },
         }),
     ],
