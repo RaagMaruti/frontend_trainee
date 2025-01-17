@@ -15,17 +15,17 @@ export default defineType({
       to: {type: 'clients'},
     }),
     defineField({
-      name: 'hero',
+      name: 'community',
       type: 'reference',
       to: {type: 'community'},
     }),
     defineField({
-      name: 'clients',
+      name: 'pixelgrade',
       type: 'reference',
       to: {type: 'hero'},
     }),
     defineField({
-      name: 'clients',
+      name: 'calendar',
       type: 'reference',
       to: {type: 'hero'},
     }),
