@@ -1,39 +1,39 @@
 * {
-    --fonts: "Inter";
-    --head-color: #4d4d4d;
-    --para-color: #717171;
-    --green: #4caf4f;
-    --footer-color: #263238;
-    --bg-gray: #f5f7fa;
+  --fonts: "Inter";
+  --head-color: #4d4d4d;
+  --para-color: #717171;
+  --green: #4caf4f;
+  --footer-color: #263238;
+  --bg-gray: #f5f7fa;
 }
 
-body{
-    width: max-content; 
-    margin: auto;
+body {
+  width: max-content;
+  margin: auto;
 }
 
-section{
-    width: 1002px;
+section {
+  width: 1002px;
 }
 
-.head{
-    color: var(--head-color);
+.head {
+  color: var(--head-color);
 }
 
-.para{
-    color: var(--para-color);
+.para {
+  color: var(--para-color);
 }
 
-.hero{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-gray);
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-gray);
 }
 
-#hero > div:first-child{
-    width: 457px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#hero > div:first-child {
+  width: 457px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

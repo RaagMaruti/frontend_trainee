@@ -1,18 +1,8 @@
 const projectId = "7dzx18r8";
 const dataset = "production";
 
-function compare(a, b) {
-  if (a.text < b.text) {
-    return -1;
-  }
-  if (a.text > b.text) {
-    return 1;
-  }
-  return 0;
-}
-
 async function fetchText(q) {
-  const url = `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${dataset}?query=${q}`;
+  const url = `https://${projectId}.apicdn.sanity.io/v2021-10-21/data/query/${dataset}?query=${q}`;
   const result = await fetch(url)
     .then((res) => res.json())
     .then(({ result }) => {
@@ -20,25 +10,24 @@ async function fetchText(q) {
     })
     .catch((err) => console.log(err));
 
-  result.sort(compare);
   for (let i = 0; i < result.length; i++) {
     try {
-      document.getElementById(result[i]).innerHTML = result[i].content;
       console.log(result[i].text);
+      document.getElementById(result[i]).innerHTML = result[i].content;
     } catch (err) {
       //   console.log(err);
     }
   }
 }
 
-const queryHeading = encodeURIComponent(`*[_type == "heading"]`);
+const queryHeading = `*[_type == "heading"] | order(text asc)`;
 fetchText(queryHeading);
 
-const queryParagraph = encodeURIComponent(`*[_type == "paragraph"]`);
+const queryParagraph = `*[_type == "paragraph"] | order(text asc)`;
 fetchText(queryParagraph);
 
 async function fetchImg(q) {
-  const url = `https://${projectId}.api.sanity.io/v2021-10-21/data/query/${dataset}?query=${q}`;
+  const url = `https://${projectId}.apicdn.sanity.io/v2021-10-21/data/query/${dataset}?query=${q}`;
   const result = await fetch(url)
     .then((res) => res.json())
     .then(({ result }) => {
@@ -46,7 +35,6 @@ async function fetchImg(q) {
     })
     .catch((err) => console.log(err));
 
-  result.sort(compare);
   for (let i = 0; i < result.length; i++) {
     let poster = `https://cdn.sanity.io/images/${projectId}/${dataset}/`;
     imageUrl = result[i].image.asset._ref;
@@ -54,20 +42,13 @@ async function fetchImg(q) {
     imageUrl = imageUrl.slice(6);
     imageUrl = imageUrl.replace(".", "-");
     try {
-      document.getElementById(result[i]).src = poster + imageUrl;
       console.log(result[i].text);
+      document.getElementById(result[i]).src = poster + imageUrl;
     } catch (error) {
       //   console.log(err);
     }
   }
 }
 
-const queryMedia = encodeURIComponent(`*[_type == "media"]`);
+const queryMedia = `*[_type == "media"] | order(text asc)`;
 fetchImg(queryMedia);
-
-// let arr = ["a1", "a2", "a3", "a4"]
-
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i])
-//     document.getElementById(arr[i]).innerHTML = arr[i]
-// }

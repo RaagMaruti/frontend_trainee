@@ -1,7 +1,6 @@
-import card from "./card"
-import heading from "./heading"
-import paragraph from "./paragraph"
-import media from "./media"
-// import link from "./link"
+import home from './home'
+import hero from './hero'
+import clients from './clients'
+import community from './community'
 
-export const schemaTypes = [card, heading, paragraph, media]
+export const schemaTypes = [home, hero, clients, community]
