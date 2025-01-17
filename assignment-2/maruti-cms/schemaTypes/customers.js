@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'community',
+  name: 'customers',
   type: 'document',
   fields: [
     defineField({
@@ -16,47 +16,35 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'heading',
+      name: 'paragraph1',
       type: 'string',
     }),
     defineField({
-      name: 'paragraph',
+      name: 'paragraph2',
       type: 'string',
     }),
     defineField({
-      name: 'image1',
+      name: 'paragraph3',
+      type: 'string',
+    }),
+    defineField({
+      name: 'image',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
     }),
     defineField({
-      name: 'label1',
+      name: 'images',
+      type: 'array',
+      of: [{type: 'image'}],
+    }),
+    defineField({
+      name: 'linkName',
       type: 'string',
     }),
     defineField({
-      name: 'description1',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image2',
-      type: 'image',
-    }),
-    defineField({
-      name: 'label2',
-      type: 'string',
-    }),
-    defineField({
-      name: 'description2',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image3',
-      type: 'image',
-    }),
-    defineField({
-      name: 'label3',
-      type: 'string',
-    }),
-    defineField({
-      name: 'description3',
+      name: 'link',
       type: 'string',
     }),
   ],
