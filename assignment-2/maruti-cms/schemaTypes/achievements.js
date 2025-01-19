@@ -24,52 +24,27 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'image1',
-      type: 'image',
-    }),
-    defineField({
-      name: 'numbers1',
-      type: 'string',
-    }),
-    defineField({
-      name: 'description1',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image2',
-      type: 'image',
-    }),
-    defineField({
-      name: 'numbers2',
-      type: 'string',
-    }),
-    defineField({
-      name: 'description2',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image3',
-      type: 'image',
-    }),
-    defineField({
-      name: 'numbers3',
-      type: 'string',
-    }),
-    defineField({
-      name: 'description3',
-      type: 'string',
-    }),
-    defineField({
-      name: 'image4',
-      type: 'image',
-    }),
-    defineField({
-      name: 'numbers4',
-      type: 'string',
-    }),
-    defineField({
-      name: 'description4',
-      type: 'string',
+      name: 'card',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'label',
+              type: 'string',
+            }),
+            defineField({
+              name: 'paragraph',
+              type: 'string',
+            }),
+            defineField({
+              name: 'image',
+              type: 'image',
+            }),
+          ],
+        },
+      ],
     }),
   ],
 })

@@ -1,7 +1,7 @@
 import {defineField, defineType} from 'sanity'
 
 export default defineType({
-  name: 'hero',
+  name: 'mediaText',
   type: 'document',
   fields: [
     defineField({
@@ -16,11 +16,11 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'tagline',
+      name: 'heading',
       type: 'string',
     }),
     defineField({
-      name: 'paragraph',
+      name: 'description',
       type: 'string',
     }),
     defineField({

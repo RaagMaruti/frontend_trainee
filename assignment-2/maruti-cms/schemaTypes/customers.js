@@ -16,23 +16,16 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'paragraph1',
+      name: 'review',
       type: 'string',
     }),
     defineField({
-      name: 'paragraph2',
+      name: 'reviewer',
       type: 'string',
     }),
     defineField({
-      name: 'paragraph3',
+      name: 'customerName',
       type: 'string',
-    }),
-    defineField({
-      name: 'image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
     }),
     defineField({
       name: 'images',
@@ -40,12 +33,12 @@ export default defineType({
       of: [{type: 'image'}],
     }),
     defineField({
-      name: 'linkName',
-      type: 'string',
-    }),
-    defineField({
-      name: 'link',
-      type: 'string',
+      name: 'cta',
+      type: 'object',
+      fields: [
+        defineField({name: 'text', type: 'string'}),
+        defineField({name: 'link', type: 'string'}),
+      ],
     }),
   ],
 })

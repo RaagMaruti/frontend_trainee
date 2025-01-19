@@ -16,16 +16,16 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'heading',
+      name: 'tagline',
       type: 'string',
     }),
     defineField({
-      name: 'linkName',
-      type: 'string',
-    }),
-    defineField({
-      name: 'link',
-      type: 'string',
+      name: 'cta',
+      type: 'object',
+      fields: [
+        defineField({name: 'text', type: 'string'}),
+        defineField({name: 'link', type: 'string'}),
+      ],
     }),
   ],
 })

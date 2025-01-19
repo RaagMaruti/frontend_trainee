@@ -16,13 +16,33 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'image',
-      type: 'image',
+      name: 'logo',
+      type: 'object',
+      fields: [
+        defineField({name: 'image', type: 'image'}),
+        defineField({name: 'link', type: 'string'}),
+      ],
     }),
     defineField({
       name: 'links',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({name: 'text', type: 'string'}),
+            defineField({name: 'link', type: 'string'}),
+          ],
+        },
+      ],
+    }),
+    defineField({
+      name: 'cta',
+      type: 'object',
+      fields: [
+        defineField({name: 'text', type: 'string'}),
+        defineField({name: 'link', type: 'string'}),
+      ],
     }),
   ],
 })
