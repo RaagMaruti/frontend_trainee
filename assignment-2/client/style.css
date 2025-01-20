@@ -13,27 +13,7 @@ body {
 }
 
 section {
-  width: 1002px;
-}
-
-.head {
-  color: var(--head-color);
-}
-
-.para {
-  color: var(--para-color);
-}
-
-.hero {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--bg-gray);
-}
-
-#hero > div:first-child {
-  width: 457px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100px;
+  height: 100px;
+  background-color: #4caf4f;
 }

@@ -28,7 +28,7 @@ const dataset = "production";
 // const queryMedia = `*[_type == "media"] | order(text asc)`;
 // fetchImg(queryMedia);
 
-async function fetchHome(q) {
+async function fetchComponents(q) {
   const url = `https://${projectId}.apicdn.sanity.io/v2021-10-21/data/query/${dataset}?query=${q}`;
   const result = await fetch(url)
     .then((res) => res.json())
@@ -37,7 +37,17 @@ async function fetchHome(q) {
     })
     .catch((err) => console.log(err));
 
-  console.log(result);
+  const components = result.components;
+
+  body = document.querySelector("body");  
+  components.forEach((c) => {
+    section = document.createElement("section");
+    body.appendChild(section);
+    p = document.createElement("p");
+    section.appendChild(p);
+    document.querySelector("p").innerHTML = c.name;
+    console.log(c.name)
+  });
 
   // for (let i = 0; i < result.length; i++) {
   //   try {
@@ -49,4 +59,5 @@ async function fetchHome(q) {
   // }
 }
 
-fetchHome(`*[_type == "home"]`);
+const queryComponents = `*[_type == "home"][0]{components}`;
+fetchComponents(queryComponents);
