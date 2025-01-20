@@ -10,6 +10,10 @@ import updates from './updates'
 import demo from './demo'
 import footer from './footer'
 
+import cta from './cta'
+import imgLink from './imgLink'
+import link from './link'
+
 export const schemaTypes = [
   home,
   header,
@@ -22,4 +26,8 @@ export const schemaTypes = [
   updates,
   demo,
   footer,
+
+  cta,
+  imgLink,
+  link,
 ]

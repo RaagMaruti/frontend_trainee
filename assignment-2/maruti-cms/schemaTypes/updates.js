@@ -9,13 +9,6 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-      },
-    }),
-    defineField({
       name: 'heading',
       type: 'string',
     }),
@@ -34,11 +27,8 @@ export default defineType({
             defineField({name: 'blogTitle', type: 'string'}),
             defineField({
               name: 'cta',
-              type: 'object',
-              fields: [
-                defineField({name: 'text', type: 'string'}),
-                defineField({name: 'link', type: 'string'}),
-              ],
+              type: 'reference',
+              to: [{type: 'cta'}],
             }),
           ],
         },

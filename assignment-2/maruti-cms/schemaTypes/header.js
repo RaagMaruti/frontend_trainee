@@ -9,40 +9,24 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-      },
-    }),
-    defineField({
       name: 'logo',
-      type: 'object',
-      fields: [
-        defineField({name: 'image', type: 'image'}),
-        defineField({name: 'link', type: 'string'}),
-      ],
+      type: 'reference',
+      to: [{type: 'imgLink'}],
     }),
     defineField({
       name: 'links',
       type: 'array',
       of: [
         {
-          type: 'object',
-          fields: [
-            defineField({name: 'text', type: 'string'}),
-            defineField({name: 'link', type: 'string'}),
-          ],
+          type: 'reference',
+          to: [{type: 'link'}],
         },
       ],
     }),
     defineField({
       name: 'cta',
-      type: 'object',
-      fields: [
-        defineField({name: 'text', type: 'string'}),
-        defineField({name: 'link', type: 'string'}),
-      ],
+      type: 'reference',
+      to: [{type: 'cta'}],
     }),
   ],
 })
