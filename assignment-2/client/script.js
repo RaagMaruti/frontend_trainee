@@ -71,7 +71,7 @@ async function fetchComponents(q) {
           let body = document.querySelector("body");
           let section = document.createElement("section");
           body.appendChild(section);
-          section.className = comps[i]._type;
+          section.className = "hero";
 
           // div1
           let div1 = document.createElement("div");
@@ -122,7 +122,7 @@ async function fetchComponents(q) {
           let body = document.querySelector("body");
           let section = document.createElement("section");
           body.appendChild(section);
-          section.className = comps[i]._type;
+          section.className = "clients";
 
           //p
           let heading = document.createElement("p");
