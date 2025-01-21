@@ -6,8 +6,6 @@ async function fetchHeader(q) {
   await fetch(url)
     .then((res) => res.json())
     .then(({ result }) => {
-      console.log(result);
-
       let body = document.querySelector("body");
       let section = document.createElement("section");
       body.appendChild(section);
