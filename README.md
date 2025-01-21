@@ -1,10 +1,13 @@
 # Frontend - Training
+
 This repository contains the projects and assignments completed during the internship program. The structure and purpose of each folder are detailed below.
 
 ## Folder Structure
 
 ### 1.html-css
+
 Contains examples and assignments related to HTML and CSS, focusing on the following:
+
 1. Elements and Attributes: p, div, span, text styling, id, class
 2. Lists and Tables
 3. Links and Images
@@ -13,7 +16,7 @@ Contains examples and assignments related to HTML and CSS, focusing on the follo
 6. Iframe vs. embed vs. object
 7. Audio, Video
 8. Graphics: SVG, Canvas, Favicon
-9. APIs 
+9. APIs
 10. CSS Basics: id, class, tag selectors, fonts, images, box model, colors
 11. Animations: 2d, 3d, transitions, transforms
 12. Pseudo: classes, elements, positions
@@ -22,11 +25,16 @@ Contains examples and assignments related to HTML and CSS, focusing on the follo
 15. Positions and Gradients
 
 ### 2.assignment-1
+
 Contains assignment related to HTML and CSS. A webpage reflecting "Our Services" section from our website.
 
 ### 3.assignment-2
+
 Contains assignment related to Sanity CMS.
 
 ### 4.javascript
+
 Contains examples and assignments related to JavaScript, focusing on the following:
-1. Basics: variables, scopes, data types, loops, maps, sets, template strings
+
+1. Basics: variables, scopes, data types, conditionals, loops, maps, sets, template strings, destructuring, rest, spread
+2. Imports and Exports: named, default, namespace
