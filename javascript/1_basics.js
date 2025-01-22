@@ -124,7 +124,7 @@ if (set.has(1)) {
 
 //destructuring and rest
 dest_arr = ["raag", "joshi", "bvn", "guj"];
-[n, , ...rest] = dest_arr;
+let [n, , ...rest] = dest_arr;
 console.log(n, ...rest)
 
 dest_obj = {
