@@ -1,8 +1,8 @@
 const person = {
     name: "raag",
     age: 22,
-    get: function () { return this.name, " ", this.age },
-    set: function (n, a) { this.name = n; this.age = a },
+    get() { return this.name + " - " + this.age },
+    set(n, a) { this.name = n; this.age = a },
 }
 
 // setter, getter

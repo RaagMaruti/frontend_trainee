@@ -38,3 +38,4 @@ Contains examples and assignments related to JavaScript, focusing on the followi
 
 1. Basics: variables, scopes, data types, conditionals, loops, maps, sets, template strings, destructuring, rest, spread
 2. Imports and Exports: named, default, namespace
+3. Objects and their methods
