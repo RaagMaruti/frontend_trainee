@@ -160,7 +160,7 @@ const queryHeader = `
    }
  }
 `;
-fetchHeader(queryHeader);
+setTimeout(fetchHeader(queryHeader), 1000);
 
 const queryComponents = `*[_type == "home"][0]{components}`;
 fetchComponents(queryComponents);
