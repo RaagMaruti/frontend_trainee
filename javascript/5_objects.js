@@ -38,10 +38,11 @@ let obj = new Person("joshi", 100)
 console.log(obj.get(), "\n\n");
 
 
-let y = {}
-Object.assign(y, person)
+let y = Object.create(person)
 // console.log(y === person) -- false, only properties are being copied
-// we can do same with y = Object.create(person)
+// we can do same with Object.assign(y, person)
+// **** here a prototype chain is being created **** 
+// "y" ----> "person" ----> null
 
 
 // no modification, deletion, addition
