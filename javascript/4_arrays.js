@@ -27,7 +27,6 @@ if (arr.includes(1000) == true) {
     console.log("\nfind even:", arr.find(function (val, index, arr) { return (val % 2) == 0 }))
     console.log("\nfind index of odd value:", arr.find(function (val, index, arr) { return (index % 2) != 0 }))
     console.log("\nindex of:", arr.lastIndexOf(200))
-
 }
 
 const flat = [[11, 25], [13, 34], [57, 46]].flat()
