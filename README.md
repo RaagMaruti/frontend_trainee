@@ -43,3 +43,6 @@ Contains examples and assignments related to JavaScript, focusing on the followi
 5. Objects and their methods
 6. Date objects and their methods
 7. Functions and closure
+8. Iterators and Genrators
+9. Classes and Prototypes: OOP
+10. AJAX
