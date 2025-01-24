@@ -46,3 +46,4 @@ Contains examples and assignments related to JavaScript, focusing on the followi
 8. Iterators and Genrators
 9. Classes and Prototypes: OOP
 10. AJAX
+11. Asynchrounous - Callbacks, Promises, Async/Await

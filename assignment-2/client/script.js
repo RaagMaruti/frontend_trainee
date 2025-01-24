@@ -160,7 +160,8 @@ const queryHeader = `
    }
  }
 `;
-fetchHeader(queryHeader);
+
+fetchHeader(queryHeader)
 const queryComponents = `*[_type == "home"][0]{components}`;
 fetchComponents(queryComponents);
 
