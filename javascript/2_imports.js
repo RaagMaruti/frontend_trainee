@@ -8,7 +8,3 @@ exports();
 
 // import * as all from "module.js"
 // namespace - imports everything
-
-// import "/modules/my-module.js";
-// Import an entire module for side effects only, without importing anything. 
-// This runs the module's global code, but doesn't actually import any values.
