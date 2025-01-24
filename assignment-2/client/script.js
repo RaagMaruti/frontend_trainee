@@ -160,8 +160,7 @@ const queryHeader = `
    }
  }
 `;
-setTimeout(fetchHeader(queryHeader), 1000);
-
+fetchHeader(queryHeader);
 const queryComponents = `*[_type == "home"][0]{components}`;
 fetchComponents(queryComponents);
 
