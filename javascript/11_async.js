@@ -1,38 +1,38 @@
-// let p = new Promise((res, rej) => {
-//   if (false) {
-//     res("res");
-//   } else {
-//     rej("rej");
-//   }
-// });
+let p = new Promise((res, rej) => {
+  if (false) {
+    res("res");
+  } else {
+    rej("rej");
+  }
+});
 
-// p.then(
-//   function (val) {
-//     console.log(val);
-//   },
-//   function (err) {
-//     console.log(err);
-//   }
-// );
+p.then(
+  function (val) {
+    console.log(val);
+  },
+  function (err) {
+    console.log(err);
+  }
+);
 
-// setTimeout(() => {
-//   console.log("callback 2");
-// }, 1000);
-// console.log("callback 1");
+setTimeout(() => {
+  console.log("callback 2");
+}, 1000);
+console.log("callback 1");
 
-// async function getData() {
-//   try {
-//     const result = await fetch(
-//       "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
-//     );
-//     console.log(`Promise 2 - settled: ${result.status}`);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+async function getData() {
+  try {
+    const result = await fetch(
+      "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
+    );
+    console.log(`Promise 2 - settled: ${result.status}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-// getData();
-// console.log("Promise - pending");
+getData();
+console.log("Promise - pending");
 
 const one1 = () => Promise.resolve("hello world");
 
