@@ -1,39 +1,59 @@
-function iterator(arr) {
-    let i = 0;
-    return {
-        next: function () {
-            if (i < arr.length) {
-                return {
-                    value: arr[i++],
-                    done: false,
-                };
-            } else {
-                return {
-                    value: undefined,
-                    done: true,
-                };
-            }
-        },
-    };
+const pages = {
+  1: ["para-1", "para-2", "para-3"],
+  2: ["para-4", "para-5", "para-6"],
+  3: ["para-7", "para-8"],
+};
+
+function myIterator() {
+  let pageNum = 0;
+  let done = false;
+  let data = null;
+
+  return {
+    next() {
+      data = pages[++pageNum];
+      if (data == undefined) {
+        done = true;
+      }
+      return {
+        count: pageNum,
+        value: data,
+        done: done,
+      };
+    },
+  };
 }
 
-const arr = [1, 2, 3];
-const vals = iterator(arr);
+const iterator = myIterator();
+let result = iterator.next();
+while (!result.done) {
+  console.log(result.count + ", " + result.value);
+  result = iterator.next();
+}
+console.log();
 
-console.log(vals.next());
-console.log(vals.next());
-console.log(vals.next());
-console.log(vals.next());
+function* myGenerator() {
+  let pageNum = 0;
+  let done = false;
+  let data = null;
 
-
-function* generator() {
-    yield 1;
-    yield 2;
-    yield 3;
+  while (true) {
+    data = pages[++pageNum];
+    if (data == undefined) {
+      done = true;
+      return;
+    }
+    yield data;
+  }
 }
 
-const gen = generator();
-console.log(gen.next()); // { value: 1, done: false }
-console.log(gen.next()); // { value: 2, done: false }
-console.log(gen.next()); // { value: 3, done: false }
-console.log(gen.next()); // { value: undefined, done: true }
+const generator = myGenerator();
+for (let gen of generator) {
+  console.log(gen);
+}
+
+// Feature	              Generator	                                                      Regular Iterator
+// State Management	      Internal state is maintained automatically by the generator.	  Requires manual state management (e.g., using a counter).
+// Pause/Resume	          Can pause and resume function execution using yield.	          Cannot pause execution; it processes all values at once.
+// Simplicity	            Easier to implement, especially for custom iterations.	        Can be more complex if iteration needs to handle state.
+// Memory Efficiency	    Useful for lazy evaluation; generates values on-demand.	        Typically returns all values at once, may not be as memory-efficient.

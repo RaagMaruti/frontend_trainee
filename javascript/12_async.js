@@ -1,20 +1,3 @@
-let p = new Promise((res, rej) => {
-  if (false) {
-    res("res");
-  } else {
-    rej("rej");
-  }
-});
-
-p.then(
-  function (val) {
-    console.log(val);
-  },
-  function (err) {
-    console.log(err);
-  }
-);
-
 setTimeout(() => {
   console.log("callback 2");
 }, 1000);

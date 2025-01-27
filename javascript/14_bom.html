@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BOM</title>
+  </head>
+  <body>
+    <p id="demo">this is demo</p>
+
+    <button onclick="back()">click to go back</button>
+    <button onclick="forward()">click to go forward</button>
+
+    <script>
+      console.log(screen);
+      console.log(location);
+      // location.assign("./demo_ajax.json");
+
+      // history
+      // go() can be used as back and forward by -ve or +ve values, 0 reloads
+      function back() {
+        history.back();
+      }
+      function forward() {
+        history.forward();
+      }
+
+      console.assert(true == false, "wrong comparison");
+      console.group();
+      console.log("log");
+      console.info("info");
+      console.warn("warn");
+      console.error("error");
+      console.groupEnd();
+    </script>
+  </body>
+</html>
+
+<!-- bom is browser specific not standardized by w3c -->

@@ -11,19 +11,17 @@ console.log(person.get(), "\n\n")
 
 
 // console.log(x === person) -- true, only reference is assigned
-const x = person;
+let x = person;
 x.age = 100;
 console.log(person, "\n\n")
-// mutable, since only reference is being copied.
+// mutable, since only reference is being copied, this is a SHALLOW copy
 
+x = JSON.parse(JSON.stringify(person))
+// use this way to create DEEP copies even to the nested objects
 
 // entries method, gives list of key value pairs
 let temp = Object.fromEntries(Object.entries(person));
 console.log(temp, "\n\n")
-
-
-// convert to JSON
-console.log(JSON.stringify(person), "\n\n")
 
 
 // constructor
