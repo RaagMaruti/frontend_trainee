@@ -46,4 +46,18 @@ Contains examples and assignments related to JavaScript, focusing on the followi
 8. Iterators and Genrators
 9. Classes and Prototypes: OOP
 10. AJAX
-11. Asynchrounous - Callbacks, Promises, Async/Await
+11. Promise and its methods
+12. Multiple Asynchrounous Functions
+13. DOM
+14. BOM
+15. Graphics
+
+### 4.typescript
+
+Contains examples and assignments related to TypeScript, focusing on the following:
+
+1. Data Types
+2. Type Alias
+3. Interfaces
+4. Functions
+5. Narrowing
