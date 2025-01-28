@@ -54,28 +54,27 @@ Promise.race([fetchData1(), fetchData2(), fetchData3()])
     console.error("First rejected promise:", error);
   });
 
-Promise.allSettled([fetchData1(), fetchData2(), fetchData3()]).then(
-  (results) => {
-    console.log("Results of all promises:");
-    results.forEach((result) => {
-      if (result.status === "fulfilled") {
-        console.log("Success:", result.value);
-      } else {
-        console.log("Failure:", result.reason);
-      }
-    });
-  }
-);
+Promise.allSettled([fetchData1(), fetchData2()]).then((results) => {
+  console.log("Results of all promises:");
+  // for each callbacks are not put into task queues, they are not for browser APIs, hence they are synchronous
+  results.forEach((result) => {
+    if (result.status === "fulfilled") {
+      console.log("Success:", result.value);
+    } else {
+      console.log("Failure:", result.reason);
+    }
+  });
+});
 
 async function fetchData() {
   console.log("Async/Await");
   try {
     const result1 = await fetchData1();
-    console.log(result1); // Output: Data 1 fetched
+    console.log(result1, "async"); // Output: Data 1 fetched
     const result2 = await fetchData2();
-    console.log(result2); // Output: Data 2 fetched
+    console.log(result2, "async"); // Output: Data 2 fetched
     const result3 = await fetchData3();
-    console.log(result3);
+    console.log(result3, "async");
   } catch (error) {
     console.error("Error in async/await:", error); // Handling errors from any promise
   }
