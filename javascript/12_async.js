@@ -8,7 +8,7 @@ async function getData() {
     const result = await fetch(
       "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
     );
-    console.log(`Promise 2 - settled: ${result.status}`);
+    console.log(`Promise - settled: ${result.status}`);
   } catch (err) {
     console.log(err);
   }
@@ -21,6 +21,7 @@ const one1 = () => Promise.resolve("hello world");
 
 async function myFunc() {
   console.log("1");
+  // only put into micro task queue when an "await" is encountered
   const res = await one1();
   console.log(res);
   console.log("4");
