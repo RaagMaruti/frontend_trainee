@@ -7,11 +7,11 @@ console.log(`${msg}`);
 
 // primitives
 let num: number = 100;
-let bool: Boolean = true;
+let bool: boolean = true;
 let und: undefined = undefined;
 let none: null = null;
 let sym: symbol = Symbol("raag");
-let big: BigInt = 100000000000n;
+let big: bigint = 100000000000n;
 
 // let variable will have a type
 // but const variable has a typed literal
@@ -39,6 +39,9 @@ function get(id: number | string): void {
   }
 }
 
+let id: number | string | null = "id";
+get(id);
+
 // tuples - where types of indexes cannot be changed
 type Res = [number, string];
 function getData(): Res {
@@ -46,9 +49,6 @@ function getData(): Res {
 }
 const [statusCode, message] = getData();
 console.log(statusCode, message);
-
-let id: number | string | null = "id";
-get(id);
 
 // Union on values
 let val: number = 1 | 2 | 3;

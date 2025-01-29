@@ -18,13 +18,14 @@ function get(id) {
         console.log(id);
     }
 }
+let id = "id";
+get(id);
+
 function getData() {
     return [200, "data fetched"];
 }
 const [statusCode, message] = getData();
 console.log(statusCode, message);
-let id = "id";
-get(id);
 let val = 1 | 2 | 3;
 if (null === undefined) {
     console.log("yes");

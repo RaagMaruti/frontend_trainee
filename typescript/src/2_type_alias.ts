@@ -1,3 +1,9 @@
+// example 1
+type Operation = (a: number, b: number) => number;
+const add: Operation = (a, b) => a + b;
+const sub: Operation = (a, b) => a - b;
+
+// example 2
 type User = {
   id: string;
   name: string;
@@ -15,7 +21,7 @@ const user: User = {
 
 display(user);
 
-// example 2
+// example 3
 type ABC = { id: number; b: number; c: number };
 function sum({ id, b, c }: ABC) {
   console.log(id + b + c);
