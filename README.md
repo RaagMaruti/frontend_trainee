@@ -60,4 +60,6 @@ Contains examples and assignments related to TypeScript, focusing on the followi
 2. Type Alias
 3. Interfaces
 4. Functions
-5. Narrowing
+5. Classes and OOP
+6. Utility Types
+7. Miscellaneous - Narrowing, Structural Typing, Const Objects and Enums, Decorators
