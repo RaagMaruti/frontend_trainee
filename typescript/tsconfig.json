@@ -5,6 +5,7 @@
     "outDir": "./target",
     "removeComments": true,
     "noImplicitAny": true,
-    "noEmitOnError": true
+    "noEmitOnError": true,
+    "experimentalDecorators": true
   }
 }

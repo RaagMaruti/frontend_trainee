@@ -20,7 +20,6 @@ function get(id) {
 }
 let id = "id";
 get(id);
-
 function getData() {
     return [200, "data fetched"];
 }

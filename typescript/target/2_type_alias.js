@@ -1,3 +1,5 @@
+const add = (a, b) => a + b;
+const sub = (a, b) => a - b;
 function display(user) {
     console.log(user.id, user.name);
 }
