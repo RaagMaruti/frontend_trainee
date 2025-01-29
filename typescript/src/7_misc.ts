@@ -66,7 +66,8 @@ class Deco {
 // enums and constant objectas are almost same
 enum hi {
   one = 1,
-  two = 2,
+  two, // auto increaments to 2
+  three = "3",
 }
 
 const objEnum = {
@@ -79,7 +80,7 @@ console.log(hi[1]); // reverse mapping only in enum
 
 //
 //
-// valid dues to both have same sructural ("duck") types
+// valid dues to both have same structural ("duck") types
 // only declared variables are not viible in JS
 interface Pet {
   name: string;
@@ -95,8 +96,8 @@ pet = new Dog();
 //
 let x = (a: string) => 0;
 let y = (b: string, s: number) => 0;
-y = x; // OK
-// x = y; // Error
+y = x; // OK, ignoring extra params is allowed
+// x = y; // Error, not enough params
 
 //
 //
@@ -118,6 +119,3 @@ foo = {
 // null coalescing
 let a = foo ?? "foo not defined";
 console.log(a);
-
-//
-//

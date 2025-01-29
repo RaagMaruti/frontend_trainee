@@ -48,6 +48,7 @@ var hi;
 (function (hi) {
     hi[hi["one"] = 1] = "one";
     hi[hi["two"] = 2] = "two";
+    hi["three"] = "3";
 })(hi || (hi = {}));
 const objEnum = {
     one: 1,
