@@ -31,7 +31,7 @@ reportWebVitals();
 // Rules of React
 // JSX - 1) single root element, 2) close tags, 3) attributes are camelCase, 4) {} to access JS
 // Keys in lists - UUID
-// Components should not change variables outside their scope
+// Components should not change variables outside their scope, even props
 // Pure functions if not changed, does not re-render
 // React has own UI Tree, smaller tree, smaller bundler
 // Only state variable changes cn cause re-rendering, each component has independent state

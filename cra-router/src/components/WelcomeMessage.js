@@ -1,13 +1,12 @@
 export default function WelcomeMessage({ prop }) {
   return (
-    <p
+    <h1
       style={{
-        fontSize: prop.size,
         fontWeight: prop.weight,
         color: prop.color,
       }}
     >
-      Welcome to CRA-Router App.
-    </p>
+      Welcome to CRA-Router Home.
+    </h1>
   );
 }

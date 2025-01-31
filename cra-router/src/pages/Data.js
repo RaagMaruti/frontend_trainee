@@ -6,7 +6,7 @@ export default function Data() {
   function handleClick(e) {
     e.stopPropagation();
     setData(!data);
-    alert("visibility of data has been changed");
+    data ? alert("Hiding Data") : alert("Showing Data");
   }
 
   const lines = [
@@ -19,9 +19,10 @@ export default function Data() {
 
   const filteredLines = lines.filter((val, index, arr) => index % 2 === 0);
 
-  const listItems = filteredLines.map((line) => (
-    <li key={crypto.randomUUID()}>{line}</li>
-  ));
+  const listItems = filteredLines.map((line) => {
+    let myKey = crypto.randomUUID();
+    return <li key={myKey}>{line}</li>;
+  });
 
   return (
     <div style={{ padding: "1em" }} onClick={handleClick}>

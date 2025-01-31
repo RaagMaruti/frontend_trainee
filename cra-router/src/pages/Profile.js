@@ -10,7 +10,7 @@ export default function Profile() {
       alert("Logged in as Admin");
       setIsAdmin(true);
     } else {
-      alert("Wroung username or password");
+      alert("Wrong username or password");
     }
   }
 
@@ -20,13 +20,7 @@ export default function Profile() {
 
   return (
     <div style={{ padding: "1em" }}>
-      <h1>This is the profile section</h1>
-
-      {isAdmin ? (
-        <h3>This message is only for the Admin.</h3>
-      ) : (
-        <h3>Hello normal user.</h3>
-      )}
+      <h1>This is the Profile Page</h1>
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Enter the username</label>
@@ -34,6 +28,7 @@ export default function Profile() {
           type="text"
           id="username"
           name="username"
+          placeholder="username"
           value={cred.username}
           onChange={handleChange}
           required
@@ -44,6 +39,7 @@ export default function Profile() {
           type="password"
           id="password"
           name="password"
+          placeholder="password"
           value={cred.password}
           onChange={handleChange}
           required
@@ -51,6 +47,8 @@ export default function Profile() {
         <br />
         <button type="submit">Submit</button>
       </form>
+
+      {isAdmin && <h3>This message is only for the Admin.</h3>}
     </div>
   );
 }
