@@ -1,13 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import "./index.css";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Data from "./pages/Data";
+import Profile from "./pages/Profile";
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/data" element={<Data />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
@@ -15,3 +27,16 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// Rules of React
+// JSX - 1) single root element, 2) close tags, 3) attributes are camelCase, 4) {} to access JS
+// Keys in lists - UUID
+// Components should not change variables outside their scope
+// Pure functions if not changed, does not re-render
+// React has own UI Tree, smaller tree, smaller bundler
+// Only state variable changes cn cause re-rendering, each component has independent state
+// Render (painting) - 1) trigger initial render, 2) render changed components, 3) commit to DOM
+// State changes are only reflected on render, in between no values are changed
+// Updater function - to change state multiple time between render - n => n + 1
+// Do not change object or array elements, set new objects or arrays, do not use mutating methods
+// Link - normal routing, useNavigate - forced routing on event
