@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router";
 
-import "./index.css";
-import Header from "./components/Header";
 import Home from "./pages/Home";
 import Data from "./pages/Data";
 import Profile from "./pages/Profile";
+import Lifecycle from "./pages/Lifecycle";
+
+import Header from "./components/Header";
+
+import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -18,6 +21,7 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/data" element={<Data />} />
+        <Route path="/lifecycle" element={<Lifecycle />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
@@ -34,7 +38,7 @@ reportWebVitals();
 // Components should not change variables outside their scope, even props
 // Pure functions if not changed, does not re-render
 // React has own UI Tree, smaller tree, smaller bundler
-// Only state variable changes cn cause re-rendering, each component has independent state
+// Only state variable changes can cause re-rendering, each component has independent state
 // Render (painting) - 1) trigger initial render, 2) render changed components, 3) commit to DOM
 // State changes are only reflected on render, in between no values are changed
 // Updater function - to change state multiple time between render - n => n + 1

@@ -19,9 +19,9 @@ export default function Data() {
 
   const filteredLines = lines.filter((val, index, arr) => index % 2 === 0);
 
+  let myKey = 0;
   const listItems = filteredLines.map((line) => {
-    let myKey = crypto.randomUUID();
-    return <li key={myKey}>{line}</li>;
+    return <li key={++myKey}>{line}</li>;
   });
 
   return (
