@@ -63,4 +63,4 @@ export default function App() {
 
 // Updater function - to change state multiple time between render - n => n + 1
 
-// Do not change object or array elements, set new objects or elements, do not use mutating methods
+// Do not change object or array elements, set new objects or arrays, do not use mutating methods
