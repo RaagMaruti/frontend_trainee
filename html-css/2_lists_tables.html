@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Lists and Tables</title>
+    <style>
+        table {
+            margin: 20px;
+            width: 30%;
+            text-align: center;
+        }
+
+        td:hover,
+        th:hover {
+            background-color: brown;
+            color: burlywood;
+        }
+
+        table,
+        th,
+        td {
+            padding: 5px;
+            border: 1px solid black;
+
+            /* to remove gap between multiple borders */
+            border-collapse: collapse;
+        }
+
+        tr:first-child {
+            background-color: yellowgreen;
+        }
+
+        tr:last-child {
+            color: deeppink
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- all 3 types of lists with their attributes -->
+    <h2>Lists</h2>
+
+    <p>Unordered list</p>
+    <ul type="square">
+        <li>q</li>
+        <li>q</li>
+        <li>q</li>
+        <li>q</li>
+    </ul>
+
+    <!-- start - to initialize the index
+     reverse - to flip the order -->
+    <p>Ordererd list</p>
+    <ol>
+        <li>w</li>
+        <li>w</li>
+    </ol>
+    <ol reversed>
+        <li>w</li>
+        <li>w</li>
+    </ol>
+    <ol start="4">
+        <li>w</li>
+        <li>w</li>
+    </ol>
+    <ol type="i">
+        <li>w</li>
+        <li>w</li>
+    </ol>
+
+    <!--  -->
+    <p>Description list</p>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- 500 gms</dd>
+        <dt>Milk</dt>
+        <dd>- 1 ltr Tetra Pack</dd>
+    </dl>
+
+
+    <hr />
+
+
+    <h2>Tables</h2>
+    <table id="one">
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Total Salary</th>
+        </tr>
+        <tr>
+            <td>Raag</td>
+            <td>Joshi</td>
+            <td>$100</td>
+        </tr>
+        <tr>
+            <td>Joe</td>
+            <td>Smith</td>
+            <td>$300</td>
+        </tr>
+    </table>
+
+
+    <!--  -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <td>Jill</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Phone</th>
+            <td>555-1234</td>
+        </tr>
+        <tr>
+            <td>555-8745</td>
+        </tr>
+    </table>
+</body>
+
+</html>

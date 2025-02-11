@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Error Handling</title>
+</head>
+
+<body>
+
+    <h1>Audio Error Handling Example</h1>
+
+    <audio controls onerror="handleAudioError()">
+        <source src="./media1/sample.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <video id="eg-video" width="320" height="240" controls>
+        <source src="./media1/video_eg.mp4" type="video/mp4" />
+    </video>
+    <div class="video-btns">
+        <button onClick="play1()">Play</button>
+        <button onClick="pause1()">Pause</button>
+        <button onClick="mute()">Mute</button>
+        <button onClick="rewind()">Rewind</button>
+        <button onClick="fastForward()">Fast Forward</button>
+    </div>
+
+
+    <script>
+        const audioElement = document.querySelector("audio");
+        navigator.media1Devices
+            .getUsermedia1({ audio: true })
+            .then((stream) => {
+                audioElement.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error("Error accessing the microphone", error);
+            });
+
+        let myVideo = document.getElementById("eg-video");
+
+        console.log(myVideo)
+
+        function play1() {
+            myVideo.play();
+        }
+        function pause1() {
+            myVideo.pause();
+        }
+        function mute() {
+            myVideo.muted = !myVideo.muted;
+        }
+        function rewind() {
+            myVideo.currentTime -= 2;
+        }
+
+        function fastForward() {
+            myVideo.currentTime += 2;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<html>
+  <body>
+    <script>
+      function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        console.log(xhttp.readyState);
+
+        // will be called every time state changes
+        xhttp.onreadystatechange = function () {
+          console.log(xhttp.readyState);
+        };
+
+        // function to be called when request is received
+        xhttp.onload = function () {
+          console.log(this.responseText);
+          document.getElementById("demo").innerHTML = JSON.parse(
+            this.responseText
+          ).cars;
+          console.log(xhttp.getAllResponseHeaders());
+        };
+
+        xhttp.open("GET", "./demo_ajax.json", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send();
+      }
+
+      function sendDoc() {
+        const xhttp = new XMLHttpRequest();
+        console.log(xhttp.readyState);
+
+        // will be called every time state changes
+        xhttp.onreadystatechange = function () {
+          console.log(xhttp.readyState);
+        };
+
+        xhttp.onload = function () {
+          console.log(this.responseText);
+          document.getElementById("demo").innerHTML = this.responseText;
+          console.log(xhttp.getAllResponseHeaders());
+        };
+
+        xhttp.open("POST", "https://jsonplaceholder.typicode.com/posts", true);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send(
+          JSON.stringify({
+            userId: 11,
+            id: 101,
+            title: "dummy title",
+            body: "dummy body",
+          })
+        );
+      }
+    </script>
+    <div id="demo">
+      <button type="button" onclick="loadDoc()">Get Message</button>
+      <button type="button" onclick="sendDoc()">Send Message</button>
+    </div>
+  </body>
+</html>

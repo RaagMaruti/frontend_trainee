@@ -1,0 +1,43 @@
+div {
+    margin: 5vh;
+    padding: 5vh;
+    border: 5px solid green;
+    font-size: large;
+    font-weight: bold;
+}
+
+div div {
+    width: 10vw;
+}
+
+#static {
+    position: static;
+    background-image: linear-gradient(to bottom right, red, green, blue);
+}
+
+#fixed {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-image: repeating-linear-gradient(90deg, red, blue 10%);
+}
+
+#absolute {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-image: radial-gradient(red, yellow, green);
+}
+
+#relative {
+    position: relative;
+    left: 30%;
+    background-image: conic-gradient(lightblue, cyan, darkblue);
+}
+
+#sticky {
+    position: sticky;
+    top: 0;
+    left: 40%;
+    background-image: conic-gradient(from 45deg, red, yellow, green);
+}

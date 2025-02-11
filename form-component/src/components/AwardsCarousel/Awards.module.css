@@ -1,0 +1,22 @@
+.slider {
+  margin: 3.75rem 1.875rem;
+  overflow-x: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.awards {
+  display: flex;
+  opacity: 50%;
+}
+
+.awardsImage {
+  padding: 0 2.8rem;
+}
+
+@media screen and (max-width: 450px) {
+  .slider {
+    margin-top: 1rem;
+    margin-bottom: 3.75rem;
+  }
+}

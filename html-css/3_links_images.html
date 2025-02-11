@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Links and Images</title>
+
+    <style>
+        a {
+            margin: 10px;
+        }
+
+        a:visited {
+            color: green;
+        }
+
+        a:active {
+            background-color: goldenrod;
+        }
+
+        img {
+            display: block;
+            margin: 50px;
+        }
+    </style>
+
+    <!-- showing favicon at top -->
+    <link rel="icon" type="image/x-icon" href="./media1/custom.ico">
+</head>
+
+<body>
+    <h2>Links</h2>
+    <!-- anchor, to navigate from one page to another
+     "href" contains th address of page -->
+    <!-- absolute URL -->
+    <a href="https://www.w3schools.com/" target="_blank">Visit W3Schools.com!</a>
+
+    <!-- relative URL -->
+    <a href="./5_semantics_layouts.html" target="_blank">Visit my html website</a>
+
+    <!-- mail -->
+    <a href="mailto:raag.joshi@marutitech.com">Send email</a>
+
+    <!-- js -->
+    <a href="javascript:console.log('hello');">Execute JavaScript</a>
+
+    <h2>Images</h2>
+    <!-- "src", for url of image
+     "alt", if image is not lodaded, provides accesibility 
+     always provide height and weight, make one auto to maintain ratio -->
+    <img src="./media1/background.jpeg" alt="butterfly" width="100px" height="auto">
+
+
+    <img src="./media1/square.jpeg" alt="square" usemap="#square">
+    <map name="square">
+        <!-- coords are for the center white sqaure -->
+        <area shape="rect" coords="35,70,140,200" alt="my website" href="./5_semantics_layouts.html" target="_blank">
+    </map>
+
+
+    <!-- multiple images and fallback text -->
+    <picture>
+        <source srcset="img1.png">
+        <source srcset="img2.png">
+        this text is a a fallback for not finding images listed in &lt;picture&gt; tag.
+    </picture>
+</body>
+
+</html>

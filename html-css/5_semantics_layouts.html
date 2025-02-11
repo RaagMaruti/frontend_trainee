@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        nav {
+            background-color: black;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        footer {
+            color: whitesmoke;
+            background-color: black;
+            position: absolute;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        a:link {
+            color: whitesmoke;
+            font-weight: 600;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+        }
+
+        a:hover {
+            background-color: brown;
+            color: burlywood;
+        }
+
+        a:visited {
+            color: whitesmoke;
+        }
+
+        .all-browsers {
+            margin: 0;
+            padding: 5px;
+            background-color: lightgray;
+        }
+
+        .all-browsers>h1,
+        .browser {
+            margin: 10px;
+            padding: 5px;
+        }
+
+        .browser {
+            background: white;
+        }
+
+        .browser>h2,
+        p {
+            margin: 4px;
+            font-size: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#">HTML</a> |
+            <a href="#">CSS</a> |
+            <a href="#">JavaScript</a> |
+            <a href="#">jQuery</a>
+        </nav>
+    </header>
+
+    <!-- instead of using div, p
+     use article and section to give more meaning to the text -->
+    <section class="all-browsers">
+        <h1>Most Popular Browsers</h1>
+        <article class="browser">
+            <h2>Google Chrome</h2>
+            <p>Google Chrome is a web browser developed by Google, released in 2008. Chrome is the world's most popular
+                web browser today!</p>
+        </article>
+        <article class="browser">
+            <h2>Mozilla Firefox</h2>
+            <p>Mozilla Firefox is an open-source web browser developed by Mozilla. Firefox has been the second most
+                popular web browser since January, 2018.</p>
+        </article>
+        <article class="browser">
+            <h2>Microsoft Edge</h2>
+            <p>Microsoft Edge is a web browser developed by Microsoft, released in 2015. Microsoft Edge replaced
+                Internet Explorer.</p>
+        </article>
+    </section>
+
+    <footer>
+        <p>Author: Hege Refsnes</p>
+    </footer>
+
+</body>
+
+</html>

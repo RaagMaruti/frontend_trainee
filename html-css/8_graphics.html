@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Graphics</title>
+
+    <style>
+        svg {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <canvas id="myCanvas" width="300" height="200">qq</canvas>
+
+        <svg width="400" height="180">
+            <rect x="50" y="20" width="150" height="150" style="fill:coral;stroke:black;stroke-width:5;opacity:0.5" />
+        </svg>
+    </div>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.moveTo(50, 50);
+        ctx.beginPath()
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI)
+        ctx.stroke()
+
+        ctx.font = "30px Courier";
+        ctx.fillText("Canvas demo", 10, 150);
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

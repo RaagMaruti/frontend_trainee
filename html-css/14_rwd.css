@@ -1,0 +1,115 @@
+#one {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+}
+
+.one {
+    background-color: aquamarine;
+    height: auto;
+    margin: 5vh;
+    padding: 1vh;
+    border: 0.5vh black solid;
+    width: 10vh;
+    text-align: center;
+    outline: 0.5vh ridge rebeccapurple;
+    text-transform: uppercase;
+}
+
+#one div:last-child {
+    flex-grow: 2;
+}
+
+.one p {
+    margin: 1em;
+    padding: 1em;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 50px;
+    margin: 0 50px
+}
+
+.two {
+    background-color: brown;
+    color: white;
+    border: 0.5vh black solid;
+    padding: 1vw;
+    text-align: center;
+    outline: 0.5vh ridge rebeccapurple;
+    text-transform: uppercase;
+}
+
+.two:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.two:last-child {
+    grid-area: 4 / 1 / 5 / 5;
+}
+
+
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: menu;
+}
+
+.item3 {
+    grid-area: main;
+}
+
+.item4 {
+    grid-area: right;
+}
+
+.item5 {
+    grid-area: footer;
+}
+
+.grid-container {
+    margin: 5vh;
+    display: grid;
+    grid-template-areas:
+        'header header header header header header'
+        'menu main main main right right'
+        'menu footer footer footer footer footer';
+    gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+
+p {
+    background-color: burlywood;
+}
+
+@media screen and (max-width: 1500px) {
+
+    .one,
+    .two {
+        background-color: darkgray;
+        color: white
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    .one,
+    .two {
+        background-color: darkblue;
+        color: lightblue;
+    }
+}

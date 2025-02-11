@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. Iframe, Object, Embed</title>
+</head>
+
+<body>
+
+    <h1>Embedding Content Examples</h1>
+
+    <h2>Using <code>&lt;iframe&gt;</code></h2>
+    <iframe src="./5_semantics_layouts.html" width="600" height="400">
+        Your browser does not support iframes.
+    </iframe>
+
+    <hr>
+
+    <h2>Using <code>&lt;object&gt;</code></h2>
+    <object data="./5_semantics_layouts.html" width="600" height="400">
+        Your browser does not support the object tag.
+    </object>
+
+    <hr>
+
+    <h2>Using <code>&lt;embed&gt;</code></h2>
+    <embed src="./5_semantics_layouts.html" width="600" height="400">
+    Your browser does not support the embed tag.
+    </embed>
+
+
+    <div id="host"></div>
+    <span>I'm not in the shadow DOM</span>
+    <br />
+
+    <button id="upper" type="button">Uppercase span elements</button>
+    <button id="reload" type="button">Reload</button>
+
+    <script>
+        const host = document.getElementById("host");
+        const shadow = host.attachShadow({ mode: "open" });
+
+        // here we insert shadow element
+        const span = document.createElement("span");
+        span.textContent = "I'm in the shadow DOM";
+        shadow.appendChild(span);
+
+        const upper = document.querySelector("button#upper");
+        // this dom update does not affect shadow element
+        upper.addEventListener("click", () => {
+            const spans = Array.from(document.querySelectorAll("span"));
+            for (const span of spans) {
+                span.textContent = span.textContent.toUpperCase();
+            }
+        });
+
+        const reload = document.querySelector("#reload");
+        reload.addEventListener("click", () => document.location.reload());
+
+    </script>
+</body>
+
+</html>

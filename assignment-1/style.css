@@ -1,0 +1,327 @@
+* {
+    font-family: "Poppins";
+}
+
+#container {
+    width: 1192px;
+    margin: auto;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1139px;
+    margin: 24px auto;
+}
+
+#heading {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 56px;
+    margin-bottom: -4px;
+}
+
+#subheading {
+    text-align: center;
+    width: 1139px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1192px;
+    margin: 20px 0;
+}
+
+.frames {
+    height: 460px;
+    margin-left: 8px;
+    transition: all 0.75s ease-in-out;
+}
+
+.cards {
+    color: white;
+    width: 182px;
+    height: 392px;
+    border-radius: 6px;
+    opacity: 0.5;
+    transition: all 0.75s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.cardTexts {
+    opacity: 0;
+    transition: all 0.75s ease-in-out;
+    max-width: 326px;
+    min-width: 326px;
+    margin-left: 24px;
+}
+
+.cardHeadings {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 42.24px;
+}
+
+.cardDescs {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.cardTitles {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30.24px;
+    width: 182px;
+}
+
+.cards:hover {
+    width: 384px;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.cards:hover .cardTexts {
+    opacity: 1;
+    width: 316px;
+}
+
+.cards:hover .cardTitles {
+    width: 316px;
+}
+
+#card1 {
+    background-image: url(./media1/card1.jpeg);
+}
+
+#card2 {
+    background-image: url(./media1/card2.jpeg);
+}
+
+#card3 {
+    background-image: url(./media1/card3.jpeg);
+}
+
+#card4 {
+    background-image: url(./media1/card4.jpeg);
+}
+
+#card5 {
+    background-image: url(./media1/card5.jpeg);
+}
+
+
+/* 1 - 2560px - 1440px
+ 3 - 768px
+ 4 - 450px
+ */
+
+@media screen and (min-width: 450px) and (max-width: 768px) {
+    #container {
+        width: 768px;
+        margin: 40px auto;
+    }
+
+    #header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 704px;
+        margin: 24px auto;
+    }
+
+    #heading {
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 56px;
+        margin-bottom: -4px;
+    }
+
+    #subheading {
+        text-align: center;
+        width: 708px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    #content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 704px;
+        margin: 8px auto;
+    }
+
+    .frames {
+        height: 158px;
+        margin: 20px auto;
+        position: relative;
+        transition: all 0.75s ease-in-out;
+    }
+
+    .cards {
+        color: white;
+        min-width: 704px;
+        height: 120px;
+        border-radius: 6px;
+        opacity: 0.5;
+        transition: all 0.75s ease-in-out;
+        display: flex;
+    }
+
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5 {
+        background-image: url(./media1/card_horizontal_crop_resize.png);
+    }
+
+    .cardTexts {
+        opacity: 0;
+        transition: all 1.5s ease-in-out;
+        max-width: 599px;
+        min-width: 599px;
+    }
+
+    .cardHeadings {
+        width: 283px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 42.24px;
+    }
+
+    .cardTitles {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 30.24px;
+        width: 300px;
+    }
+
+    .frames:hover .cards {
+        height: 392px;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .frames:hover {
+        height: 430px;
+    }
+
+    .frames:hover .cardTexts {
+        opacity: 1;
+    }
+}
+
+
+@media screen and (max-width: 450px) {
+    #container {
+        width: 450px;
+        margin: auto;
+    }
+
+    #header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 418px;
+        margin: 20px auto;
+    }
+
+    #heading {
+        text-align: center;
+        font-weight: 600;
+        font-size: 28px;
+        line-height: 38.64px;
+    }
+
+    #subheading {
+        width: 418px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 23.04px;
+    }
+
+    #content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 418px;
+        margin: 8px auto;
+    }
+
+    .frames {
+        height: 158px;
+        margin: 20px auto;
+        position: relative;
+    }
+
+    .cards {
+        color: white;
+        min-width: 418px;
+        height: 120px;
+        border-radius: 6px;
+        opacity: 0.5;
+        transition: all 0.75s ease-in-out;
+        display: flex;
+        align-items: center;
+    }
+
+    #card1,
+    #card2,
+    #card3,
+    #card4,
+    #card5 {
+        background-image: url(./media1/card_horizontal_crop_resize.png);
+    }
+
+    .cardTexts {
+        opacity: 0;
+        transition: all 1.5s ease-in-out;
+        max-width: 322px;
+        min-width: 322px;
+        margin-left: 34px;
+    }
+
+    .cardHeadings {
+        width: 283px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 42.24px;
+    }
+
+    .cardTitles {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 30.24px;
+        width: 300px;
+    }
+
+    .frames:hover .cards {
+        height: 392px;
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .frames:hover {
+        height: 430px;
+    }
+
+    .frames:hover .cardTexts {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <p></p>
+    <p id="para">"mouse down will be light blue"</p>
+    <p id="para2">this should be red</p>
+    <button id="para3">this will be removed</button>
+    <script>
+      console.log(document.body.childNodes); // nodelist
+      console.log(document.querySelectorAll("p")); // nodelist
+
+      coll = document.getElementsByTagName("p");
+      console.log(coll);
+      for (let i = 0; i < coll.length; i++) {
+        coll[i].style.backgroundColor = "lightgreen";
+      } // htmlcollection
+
+      // pass 3rd arguement as false for event capturing
+      let para = document.getElementById("para");
+      para.addEventListener("mousedown", () => {
+        para.style.backgroundColor = "lightblue";
+      });
+
+      para.addEventListener("mouseup", () => {
+        para.style.backgroundColor = "lightgreen";
+      });
+
+      para.previousElementSibling.innerHTML = "this is sibling of " + para.id;
+      para.nextElementSibling.style.color = "red"
+
+      para3 = document.querySelector("#para3")
+      para3.addEventListener("click", () => {
+        para3.remove()
+      });
+    </script>
+  </body>
+</html>
+
+<!-- nodelist can have text nodes, attribute nodes - quey selector, child nodes -->
+<!-- htmlcollections only have html tags - tag name, class name -->
