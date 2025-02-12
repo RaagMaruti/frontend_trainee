@@ -6,7 +6,7 @@ import React, {
   useRef,
 } from "react";
 
-export default function Lifecycle() {
+export default function FunctionLifecycle() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("React 18");
   const renderCount = useRef(0); // Persists beween 2 renders, withou causing re-renders
@@ -42,8 +42,7 @@ export default function Lifecycle() {
 
   return (
     <div style={{ padding: "1em" }}>
-
-      <h1>React 18 Functional Lifecycle Demo</h1>
+      <h1>Functional Lifecycle Demo</h1>
       <p>Count: {count}</p>
       <p>Expensive Calculation: {expensiveCalculation}</p>
       <button onClick={increment}>Increment Count</button>
