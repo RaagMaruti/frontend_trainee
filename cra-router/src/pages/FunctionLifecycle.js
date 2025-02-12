@@ -7,54 +7,55 @@ import React, {
 } from "react";
 
 export default function FunctionLifecycle() {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("React 18");
-  const renderCount = useRef(0); // Persists beween 2 renders, withou causing re-renders
+	const [count, setCount] = useState(0);
+	const [name, setName] = useState("React 18");
+	const renderCount = useRef(0);
+	// Persists beween 2 renders, without causing re-renders
 
-  useEffect(() => {
-    console.log("Mounted");
+	useEffect(() => {
+		console.log("Mounted");
 
-    return () => {
-      console.log("Unmounted");
-    };
-  }, []); // Runs only once
+		return () => {
+			console.log("Unmounted");
+		};
+	}, []); // Runs only once
 
-  useEffect(() => {
-    console.log(`🔄 Count changed to: ${count}`);
-  }, [count]); // Runs when "count" changes
+	useEffect(() => {
+		console.log("Count changed to:", count);
+	}, [count]); // Runs when "count" changes
 
-  useEffect(() => {
-    console.log(`📝 Name updated to: ${name}`);
-  }, [name]); // Runs when "name" changes
+	useEffect(() => {
+		console.log("Name updated to:", name);
+	}, [name]); // Runs when "name" changes
 
-  useEffect(() => {
-    console.log(`Component re-rendered ${++renderCount.current} times`);
-  }); // Using useRef to track renders
+	useEffect(() => {
+		console.log("Component re-rendered", ++renderCount.current, "times");
+	}); // Using useRef to track renders
 
-  const expensiveCalculation = useMemo(() => {
-    console.log("⚡ Running expensive calculation...");
-    return count * 1000;
-  }, [count]); // Only re-calculates when `count` changes
+	const expensiveCalculation = useMemo(() => {
+		console.log("Running expensive calculation...");
+		return count * 1000;
+	}, [count]); // Only re-calculates when count changes
 
-  const increment = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, []);
+	const increment = useCallback(() => {
+		setCount((prev) => prev + 1);
+	}, []);
 
-  return (
-    <div style={{ padding: "1em" }}>
-      <h1>Functional Lifecycle Demo</h1>
-      <p>Count: {count}</p>
-      <p>Expensive Calculation: {expensiveCalculation}</p>
-      <button onClick={increment}>Increment Count</button>
+	return (
+		<div style={{ padding: "1em" }}>
+			<h1>Functional Lifecycle Demo</h1>
+			<p>Count: {count}</p>
+			<p>Expensive Calculation: {expensiveCalculation}</p>
+			<button onClick={increment}>Increment Count</button>
 
-      <p>Name: {name}</p>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+			<p>Name: {name}</p>
+			<input
+				type="text"
+				value={name}
+				onChange={(e) => setName(e.target.value)}
+			/>
 
-      <p>Render Count: {renderCount.current}</p>
-    </div>
-  );
+			<p>Render Count: {renderCount.current}</p>
+		</div>
+	);
 }
