@@ -53,6 +53,7 @@ async function fetchComponents(q) {
     })
     .catch((err) => console.log(err));
   const comps = result.components;
+  console.log(comps)
 
   for (let i = 0; i < comps.length; i++) {
     if (comps[i]._type == "hero") {
@@ -67,6 +68,7 @@ async function fetchComponents(q) {
         .then((res) => res.json())
         .then(({ result }) => {
           const hero = result.components;
+          console.log(hero)
 
           let body = document.querySelector("body");
           let section = document.createElement("section");

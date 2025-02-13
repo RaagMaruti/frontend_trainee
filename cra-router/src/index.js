@@ -7,6 +7,7 @@ import Data from "./pages/Data";
 import Profile from "./pages/Profile";
 import FunctionLifecycle from "./pages/FunctionLifecycle";
 import ClassLifecycle from "./pages/ClassLifecycle";
+import Hooks from "./pages/Hooks";
 import Header from "./components/Header";
 import "./index.css";
 
@@ -20,6 +21,7 @@ root.render(
       <Route path="/data" element={<Data />} />
       <Route path="/function-lifecycle" element={<FunctionLifecycle />} />
       <Route path="/class-lifecycle" element={<ClassLifecycle />} />
+      <Route path="/hooks" element={<Hooks />} />
     </Routes>
   </BrowserRouter>
 );

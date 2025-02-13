@@ -8,6 +8,7 @@ export default function Header() {
       <Link to="/profile">Profile</Link>
       <Link to="/function-lifecycle">Functional-Lifecycle</Link>
       <Link to="/class-lifecycle">Class-Lifecycle</Link>
+      <Link to="/hooks">Hooks</Link>
     </nav>
   );
 }
