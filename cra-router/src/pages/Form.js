@@ -14,7 +14,6 @@ export default function Form() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      style={{ maxWidth: "300px", margin: "auto" }}
     >
       <div>
         <label>Name:</label>
