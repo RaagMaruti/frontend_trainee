@@ -22,12 +22,22 @@ const App = () => {
   return (
     <div>
       <h2>Search Example</h2>
-      <input type="text" value={query} onChange={handleSearch} placeholder="Search..." />
+      <input
+        type="text"
+        value={query}
+        onChange={handleSearch}
+        placeholder="Search..."
+      />
       {isPending && <p>Loading...</p>} {/* Shows while filtering */}
       <ul>
-        {filteredData.slice(0, 20).map((item, i) => ( // Display first 20 results
-          <li key={i}>{item}</li>
-        ))}
+        {filteredData.slice(0, 20).map(
+          (
+            item,
+            i // Display first 20 results
+          ) => (
+            <li key={i}>{item}</li>
+          )
+        )}
       </ul>
     </div>
   );
