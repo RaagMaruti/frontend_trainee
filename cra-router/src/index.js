@@ -22,6 +22,7 @@ root.render(
       <Route path="/function-lifecycle" element={<FunctionLifecycle />} />
       <Route path="/class-lifecycle" element={<ClassLifecycle />} />
       <Route path="/hooks" element={<Hooks />} />
+      <Route path="/app" element={<App />} />
     </Routes>
   </BrowserRouter>
 );
