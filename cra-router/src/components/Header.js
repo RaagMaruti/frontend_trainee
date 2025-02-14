@@ -9,6 +9,7 @@ export default function Header() {
       <Link to="/function-lifecycle">Functional-Lifecycle</Link>
       <Link to="/class-lifecycle">Class-Lifecycle</Link>
       <Link to="/hooks">Hooks</Link>
+      <Link to="/app">App</Link>
     </nav>
   );
 }

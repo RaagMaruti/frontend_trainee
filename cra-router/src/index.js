@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import FunctionLifecycle from "./pages/FunctionLifecycle";
 import ClassLifecycle from "./pages/ClassLifecycle";
 import Hooks from "./pages/Hooks";
+import App from "./pages/App";
 import Header from "./components/Header";
 import "./index.css";
 
