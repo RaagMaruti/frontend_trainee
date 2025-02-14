@@ -15,18 +15,17 @@ class ClassLifecycle extends Component {
 
   static getDerivedStateFromProps(props, state) {
     console.log(
-      "getDerivedStateFromProps: Sync state with props - 2, 5",
+      "getDerivedStateFromProps - 2, 5",
       state,
       props
     );
-    return null;
-    // return { name: props.name };
+    return { name: props.name };
     // returning updated state
     // return null if not updating state
   }
 
   componentDidMount() {
-    console.log("componentDidMount: Yes it has been rendered - 4");
+    console.log("componentDidMount - 4");
   }
 
   shouldComponentUpdate(props, state) {
@@ -40,7 +39,7 @@ class ClassLifecycle extends Component {
 
   getSnapshotBeforeUpdate(props, state) {
     console.log(
-      "getSnapshotBeforeUpdate: Snapshot before update - 8",
+      "getSnapshotBeforeUpdate - 8",
       props,
       state
     );
@@ -48,11 +47,11 @@ class ClassLifecycle extends Component {
   }
 
   componentDidUpdate(props, state) {
-    console.log("componentDidUpdate: Component updated - 9", props, state);
+    console.log("componentDidUpdate - 9", props, state);
   }
 
   componentWillUnmount() {
-    console.log("componentWillUnmount: Component is about to be removed - 10");
+    console.log("componentWillUnmount - 10");
   }
 
   // componentDidCatch(error, info) {
@@ -64,7 +63,7 @@ class ClassLifecycle extends Component {
   };
 
   render() {
-    console.log("Rendering component - 3, 7");
+    console.log("Rendering: - 3, 7");
     return (
       <div style={{ padding: "1em" }}>
         <h2>React Lifecycle Methods</h2>
@@ -78,7 +77,7 @@ class ClassLifecycle extends Component {
 
 export default class Caller extends ClassLifecycle {
   constructor(props) {
-    console.log("Constructor Caller - 1");
+    console.log("Constructor Caller - 0");
     super(props);
   }
 
