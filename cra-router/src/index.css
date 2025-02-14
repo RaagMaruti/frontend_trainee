@@ -3,7 +3,8 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
-label, input,
+label,
+input,
 button,
 a {
   margin: 1em;
@@ -16,4 +17,6 @@ a {
 nav {
   background-color: lightskyblue;
   padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
 }

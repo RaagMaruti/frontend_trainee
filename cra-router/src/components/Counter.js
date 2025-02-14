@@ -1,18 +1,28 @@
-import { useState } from "react";
+import React, { useReducer } from "react";
+
+// Reducer function (takes current state and action, returns new state)
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "+":
+      return { count: state.count + 1 };
+    case "-":
+      return { count: state.count - 1 };
+    case "0":
+      return { count: 0 };
+    default:
+      return state;
+  }
+};
 
 export default function Counter() {
-  const [count, setCount] = useState({ c1: 0, c2: 0 });
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
   return (
     <div>
-      <h3>Change values of object properties, independently</h3>
-      <span style={{ margin: "1em" }}>{count.c1}</span>
-      <button onClick={() => setCount({ ...count, c1: count.c1 + 3 })}>
-        +3
-      </button>
-      <span style={{ margin: "1em" }}>{count.c2}</span>
-      <button onClick={() => setCount({ ...count, c2: count.c2 + 5 })}>
-        +5
-      </button>
+      <h2>Count: {state.count}</h2>
+      <button onClick={() => dispatch({ type: "+" })}>add</button>
+      <button onClick={() => dispatch({ type: "-" })}>sub</button>
+      <button onClick={() => dispatch({ type: "0" })}>reset</button>
     </div>
   );
 }
