@@ -89,6 +89,7 @@
   color: brandColorThree;
   background-color: #ffffff;
   border: 3px solid #f05443;
+  color: #f05443;
 }
 
 @media screen and (max-width: 768px) {
