@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Data from "./pages/Data";
-import Profile from "./pages/Profile";
 import FunctionLifecycle from "./pages/FunctionLifecycle";
 import ClassLifecycle from "./pages/ClassLifecycle";
 import Effects from "./pages/Effects";
@@ -21,7 +20,6 @@ root.render(
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<Profile />} />
       <Route path="/data" element={<Data />} />
       <Route path="/function-lifecycle" element={<FunctionLifecycle />} />
       <Route path="/class-lifecycle" element={<ClassLifecycle />} />
