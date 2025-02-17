@@ -11,6 +11,7 @@ import Transition from "./pages/Transition";
 import Deferred from "./pages/Deferred";
 import Custom from "./pages/Custom";
 import Form from "./pages/Form";
+import Axios from "./pages/Axios";
 import Header from "./components/Header";
 import "./index.css";
 
@@ -28,6 +29,7 @@ root.render(
       <Route path="/transition" element={<Transition />} />
       <Route path="/custom" element={<Custom />} />
       <Route path="/form" element={<Form />} />
+      <Route path="/axios" element={<Axios />} />
     </Routes>
   </BrowserRouter>
 );

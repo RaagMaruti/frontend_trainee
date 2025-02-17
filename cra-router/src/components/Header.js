@@ -11,6 +11,7 @@ export default function Header() {
       <Link to="/deferred">Deferred</Link>
       <Link to="/custom">Custom</Link>
       <Link to="/form">Form</Link>
+      <Link to="/axios">Axios</Link>
     </nav>
   );
 }

@@ -1,4 +1,4 @@
-import PropTypes, { node } from "prop-types";
+import PropTypes from "prop-types";
 import Profile from "./Profile";
 
 export default function WelcomeMessage({ prop }) {
