@@ -33,49 +33,49 @@ function useForm(initialValues, initialErrors, initialRequired) {
   };
 
   const handleChange = ({
-    name = "",
-    value = "",
-    type = "",
-    checked = false,
-  }: {
-    name: string;
-    value: any;
-    type?: string;
-    checked?: boolean;
-  }) => {
-    // let { name, value, type, checked } = e.target;
-    value = type === "checkbox" ? checked : value;
+		name = "",
+		value = "",
+		type = "",
+		checked = false,
+	}: {
+		name: string;
+		value: string | boolean;
+		type?: string;
+		checked?: boolean;
+	}) => {
+		value = type === "checkbox" ? checked : value;
 
-    const newValues = { ...values };
+		const newValues = { ...values };
 
-    if (value) {
-      if (name === "firstName" || name === "lastName") {
-        newValues[name] = value.replace(/^[^a-zA-Z]$/g, "");
-      } else if (name === "phone") {
-        newValues[name] = value.replace(/^[^0-9]$/g, "");
-      } else {
-        newValues[name] = value;
-      }
-    }
+		if (
+			typeof value === "string" &&
+			(name === "firstName" || name === "lastName")
+		) {
+			newValues[name] = value.replace(/^[^a-zA-Z]$/g, "");
+		} else if (typeof value === "string" && name === "phone") {
+			newValues[name] = value.replace(/^[^0-9]$/g, "");
+		} else {
+			newValues[name] = value;
+		}
 
-    setValues(newValues);
+		setValues(newValues);
 
-    if (name in errors) {
-      validateField(name, value);
-    }
-  };
+		if (name in errors) {
+			validateField(name, value);
+		}
+	};
 
   const validateForm = () => {
     const newErrors = { ...errors };
 
     for (let i in initialRequired) {
-      if (initialRequired[i] && !values[i]) {
-        newErrors[i] = {
-          empty: true,
-          message: "required field",
-        };
-      }
-    }
+			if (initialRequired[i] && !values[i]) {
+				newErrors[i] = {
+					empty: true,
+					message: "required field",
+				};
+			}
+		}
 
     console.log("errors", newErrors);
     setErrors(newErrors);
