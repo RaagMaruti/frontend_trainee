@@ -33,3 +33,7 @@ WelcomeMessage.propTypes = {
   // react element
   ele: PropTypes.element,
 };
+
+
+// only in dev mode
+// stripped out in production
