@@ -8,6 +8,7 @@ export default function Axios() {
   axios.interceptors.request.use(
     function (config) {
       console.log("sending request");
+      config.headers.Authorization = "my token"
       return config;
     },
     function (error) {
@@ -65,7 +66,8 @@ export default function Axios() {
   // const handleUpdate = async () => {
   //   try {
   //     const response = await axios.put(
-  //       "https://jsonplaceholder.typicode.com/posts/1",
+  //       "https://jsonplaceholder.typicode.com/posts/",
+  //       { params: "1" },
   //       {
   //         title: "Updated Title",
   //         body: "This is the updated body of the post",

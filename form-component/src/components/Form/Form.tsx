@@ -1,142 +1,192 @@
-import { useState } from "react";
+"use client";
+
 import styles from "./Form.module.css";
+import useForm from "./useForm";
 
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 
 export default function Form({ data }: any) {
-  const [formData, setFormData] = useState<{ [key: string]: any }>({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    hear: "",
-    company: "",
-    help: "",
-    consent: false,
-  });
+  const { values, errors, handleChange, handleSubmit } = useForm(
+    {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      hear: "",
+      company: "",
+      help: "",
+      consent: false,
+    },
+    {
+      firstName: {
+        empty: false,
+        message: "",
+      },
+      lastName: {
+        empty: false,
+        message: "",
+      },
+      email: {
+        empty: false,
+        invalid: false,
+        message: "",
+      },
 
-  const [error, setError] = useState<{
-    [key: string]: { [key: string]: boolean | null };
-  }>({
-    firstName: { empty: null, invalid: null },
-    lastName: { empty: null, invalid: null },
-    email: { empty: null, invalid: null },
-    phone: { empty: null, invalid: null },
-    consent: { empty: null, invalid: null },
-  });
-
-  const handleChange = (e: any) => {
-    let { name, value } = e.target;
-
-    // error message
-    if (value === "") {
-      setError({ ...error, [name]: { empty: true, invalid: false } });
-    } else {
-      setError({ ...error, [name]: { empty: false, invalid: false } });
+      phone: {
+        empty: false,
+        invalid: false,
+        message: "",
+      },
+      consent: {
+        empty: false,
+        message: "",
+      },
+    },
+    {
+      firstName: true,
+      lastName: true,
+      email: true,
+      phone: true,
+      hear: false,
+      company: false,
+      help: false,
+      consent: true,
     }
+  );
 
-    // only alphabets are allowed
-    if (name === "firstName" || name === "lastName") {
-      value = value.replace(/[^a-zA-Z\s]/g, "");
-    }
+  // const [formData, setFormData] = useState<{ [key: string]: any }>({
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   phone: '',
+  //   hear: '',
+  //   company: '',
+  //   help: '',
+  //   consent: false,
+  // });
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  // const [error, setError] = useState<{
+  //   [key: string]: { [key: string]: boolean | null };
+  // }>({
+  //   firstName: { empty: null, invalid: null },
+  //   lastName: { empty: null, invalid: null },
+  //   email: { empty: null, invalid: null },
+  //   phone: { empty: null, invalid: null },
+  //   consent: { empty: null, invalid: null },
+  // });
 
-  const handleEmail = (e: any) => {
-    let { name, value } = e.target;
+  // const handleChange = (e: any) => {
+  //   let { name, value } = e.target;
 
-    let pattern = /\S+@\S+\.\S+/;
-    let emailTrue = pattern.test(value);
+  //   // error message
+  //   if (value === '') {
+  //     setError({ ...error, [name]: { empty: true, invalid: false } });
+  //   } else {
+  //     setError({ ...error, [name]: { empty: false, invalid: false } });
+  //   }
 
-    if (value === "") {
-      setError({ ...error, [name]: { empty: true, invalid: false } });
-    } else if (!emailTrue) {
-      setError({ ...error, [name]: { empty: false, invalid: true } });
-    } else {
-      setError({ ...error, [name]: { empty: false, invalid: false } });
-    }
+  //   // only alphabets are allowed
+  //   if (name === 'firstName' || name === 'lastName') {
+  //     value = value.replace(/[^a-zA-Z\s]/g, '');
+  //   }
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
 
-  const handleBlurPhone = (e: any) => {
-    const value = e.target.value;
-    if (value) {
-      setError({ ...error, phone: { empty: false, invalid: false } });
-    } else {
-      setError({ ...error, phone: { empty: true, invalid: false } });
-    }
-  };
+  // const handleEmail = (e: any) => {
+  //   let { name, value } = e.target;
 
-  function handleChangePhone(value: string | undefined) {
-    if (value) {
-      if (value.length < 8 || value.length > 15) {
-        setError({ ...error, phone: { empty: false, invalid: true } });
-      } else {
-        setError({ ...error, phone: { empty: false, invalid: false } });
-        setFormData({ ...formData, phone: value });
-      }
-    } else {
-      setError({ ...error, phone: { empty: true, invalid: false } });
-    }
-  }
+  //   let pattern = /\S+@\S+\.\S+/;
+  //   let emailTrue = pattern.test(value);
 
-  const handleConsent = (e: any) => {
-    let { name, checked } = e.target;
+  //   if (value === '') {
+  //     setError({ ...error, [name]: { empty: true, invalid: false } });
+  //   } else if (!emailTrue) {
+  //     setError({ ...error, [name]: { empty: false, invalid: true } });
+  //   } else {
+  //     setError({ ...error, [name]: { empty: false, invalid: false } });
+  //   }
 
-    if (formData.consent) {
-      setError({ ...error, consent: { empty: true, invalid: false } });
-    } else {
-      setError({ ...error, consent: { empty: false, invalid: false } });
-    }
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
 
-    setFormData({
-      ...formData,
-      [name]: checked,
-    });
-  };
+  // const handleBlurPhone = (e: any) => {
+  //   const value = e.target.value;
+  //   if (value) {
+  //     setError({ ...error, phone: { empty: false, invalid: false } });
+  //   } else {
+  //     setError({ ...error, phone: { empty: true, invalid: false } });
+  //   }
+  // };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    let i: string = "";
-    const newError = { ...error };
+  // function handleChangePhone(value: string | undefined) {
+  //   if (value.length > 1) {
+  //     if (value.length < 8 || value.length > 15) {
+  //       setError({ ...error, phone: { empty: false, invalid: true } });
+  //     } else {
+  //       setError({ ...error, phone: { empty: false, invalid: false } });
+  //       setFormData({ ...formData, phone: value });
+  //     }
+  //   } else {
+  //     setError({ ...error, phone: { empty: true, invalid: false } });
+  //   }
+  // }
 
-    for (i in error) {
-      if (formData[i] === "" || (i === "consent" && formData[i] === false)) {
-        newError[i] = { empty: true, invalid: false };
-      }
-    }
-    setError(newError);
+  // const handleConsent = (e: any) => {
+  //   let { name, checked } = e.target;
 
-    if (
-      !(
-        error.firstName.empty ||
-        error.lastName.empty ||
-        error.email.empty ||
-        error.email.invalid ||
-        error.phone.empty ||
-        error.phone.invalid ||
-        error.consent.empty
-      )
-    ) {
-      console.log(formData);
-      alert("Form submitted successfully");
-    } else {
-      alert("Form incomplete");
-    }
-  };
+  //   if (formData.consent) {
+  //     setError({ ...error, consent: { empty: true, invalid: false } });
+  //   } else {
+  //     setError({ ...error, consent: { empty: false, invalid: false } });
+  //   }
+
+  //   setFormData({
+  //     ...formData,
+  //     [name]: checked,
+  //   });
+  // };
+
+  // const handleSubmit = (e: any) => {
+  //   e.preventDefault();
+  //   let i: string = '';
+  //   const newError = { ...error };
+
+  //   for (i in error) {
+  //     if (formData[i] === '' || (i === 'consent' && formData[i] === false)) {
+  //       newError[i] = { empty: true, invalid: false };
+  //     }
+  //   }
+  //   setError(newError);
+
+  //   if (
+  //     !(
+  //       error.firstName.empty ||
+  //       error.lastName.empty ||
+  //       error.email.empty ||
+  //       error.email.invalid ||
+  //       error.phone.empty ||
+  //       error.phone.invalid ||
+  //       error.consent.empty
+  //     )
+  //   ) {
+  //     console.log(formData);
+  //     alert('Form submitted successfully');
+  //   } else {
+  //     alert('Form incomplete');
+  //   }
+  // };
 
   return (
     <div>
-      <form className={styles.form} onSubmit={handleSubmit} noValidate>
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.nameFields}>
           <div className={styles.firstName}>
             <label htmlFor="firstName">First Name* </label>
@@ -147,7 +197,7 @@ export default function Form({ data }: any) {
                 color: "#f05443",
               }}
             >
-              {error.firstName.empty && "(required field)"}
+              {errors.firstName.message}
             </span>
             <br />
             <input
@@ -156,10 +206,9 @@ export default function Form({ data }: any) {
               id="firstName"
               name="firstName"
               maxLength={50}
-              value={formData.firstName}
-              onChange={handleChange}
-              onBlur={handleChange}
-              required
+              value={values.firstName}
+              onChange={(e) => handleChange(e?.target)}
+              onBlur={(e) => handleChange(e?.target)}
             />
           </div>
           <div className={styles.lastName}>
@@ -171,7 +220,7 @@ export default function Form({ data }: any) {
                 color: "#f05443",
               }}
             >
-              {error.lastName.empty && "(required field)"}
+              {errors.lastName.message}
             </span>
             <br />
             <input
@@ -180,10 +229,9 @@ export default function Form({ data }: any) {
               id="lastName"
               name="lastName"
               maxLength={50}
-              value={formData.lastName}
-              onChange={handleChange}
-              onBlur={handleChange}
-              required
+              value={values.lastName}
+              onChange={(e) => handleChange(e?.target)}
+              onBlur={(e) => handleChange(e?.target)}
             />
           </div>
         </div>
@@ -196,8 +244,7 @@ export default function Form({ data }: any) {
               color: "#f05443",
             }}
           >
-            {error.email.empty && "(required field)"}
-            {error.email.invalid && "(invalid email address)"}
+            {errors.email.message}
           </span>
           <br />
           <input
@@ -206,10 +253,9 @@ export default function Form({ data }: any) {
             id="email"
             name="email"
             maxLength={50}
-            value={formData.email}
-            onChange={handleEmail}
-            onBlur={handleEmail}
-            required
+            value={values.email}
+            onChange={(e) => handleChange(e?.target)}
+            onBlur={(e) => handleChange(e?.target)}
           />
         </div>
         <div className={styles.inputFields}>
@@ -221,12 +267,14 @@ export default function Form({ data }: any) {
               color: "#f05443",
             }}
           >
-            {error.phone.empty && "(required field)"}
-            {error.phone.invalid && "(invalid phone number)"}
+            {errors.phone.message}
           </span>
           <br />
           <div>
             <PhoneInput
+              inputProps={{
+                name: "phone",
+              }}
               placeholder=""
               inputStyle={{
                 border: "none",
@@ -239,9 +287,9 @@ export default function Form({ data }: any) {
                 backgroundColor: "white",
               }}
               country="in"
-              value={formData.phone}
-              onChange={handleChangePhone}
-              onBlur={handleBlurPhone}
+              value={values.phone}
+              onChange={(value) => handleChange({ value, name: "phone" })}
+              onBlur={(value) => handleChange({ value, name: "phone" })}
             />
           </div>
         </div>
@@ -254,8 +302,8 @@ export default function Form({ data }: any) {
             id="hear"
             name="hear"
             maxLength={100}
-            value={formData.hear}
-            onChange={handleChange}
+            value={values.hear}
+            onChange={(e) => handleChange(e?.target)}
           ></input>
         </div>
         <div className={styles.inputFields}>
@@ -267,9 +315,8 @@ export default function Form({ data }: any) {
             id="company"
             name="company"
             maxLength={50}
-            value={formData.company}
-            onChange={handleChange}
-            required
+            value={values.company}
+            onChange={(e) => handleChange(e?.target)}
           />
         </div>
         <div className={styles.inputFields}>
@@ -280,8 +327,8 @@ export default function Form({ data }: any) {
             id="help"
             name="help"
             maxLength={500}
-            value={formData.help}
-            onChange={handleChange}
+            value={values.help}
+            onChange={(e) => handleChange(e?.target)}
           ></textarea>
         </div>
         <div className={styles.checkbox}>
@@ -291,8 +338,8 @@ export default function Form({ data }: any) {
               type="checkbox"
               id="consent"
               name="consent"
-              checked={formData.consent}
-              onChange={handleConsent}
+              checked={values.consent}
+              onChange={(e) => handleChange(e?.target)}
             />
           </div>
           <label htmlFor="consent">
@@ -304,7 +351,7 @@ export default function Form({ data }: any) {
                 color: "#f05443",
               }}
             >
-              {error.consent.empty && "(please tick the checkbox)"}
+              {errors.consent.message}
             </span>
           </label>
         </div>

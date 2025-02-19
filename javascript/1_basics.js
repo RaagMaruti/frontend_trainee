@@ -128,7 +128,7 @@ let [n, , ...rest] = dest_arr;
 console.log(n, ...rest)
 
 dest_obj = {
-  address: "isckon", company: "maruti"
+  company: "maruti"
 }
 // varaible names are same as property names of object
 let area, city, company;
