@@ -49,8 +49,8 @@ export default function Axios() {
           headers: {
             "Content-Type": "application/json",
           },
-        },
-        { timeout: 500 }
+          timeout: 1000,
+        }
       );
       console.log(response);
     } catch (error) {
