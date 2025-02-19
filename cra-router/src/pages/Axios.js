@@ -59,7 +59,7 @@ export default function Axios() {
       console.log(response);
     } catch (error) {
       if (axios.isCancel(error)) {
-        console.log("cannot wait more than half second");
+        console.log("cannot wait more than 1 second");
       }
       console.error(error);
     } finally {
@@ -99,7 +99,7 @@ export default function Axios() {
   );
 }
 
-// Feature	                Fetch	                            Axios
+// Feature	                Fetch	                              Axios
 
 // Ease of Use	            Manual parsing	                    Automatic parsing
 // Error Handling	          Requires response.ok check	        Rejects on HTTP errors
