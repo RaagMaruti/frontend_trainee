@@ -1,0 +1,100 @@
+{
+  "data": {
+    "contactUs": {
+      "heading": ["Free", "Consultation"],
+      "subHeading": "Let's discover possibilities of working together. Schedule an introductory call.",
+      "awardHeading": "Award-Winning Company Culture",
+      "images": {
+        "redTop": {
+          "src": "./constant/assets/redTop.png",
+          "alt": "graphic"
+        },
+        "redBottom": {
+          "src": "./constant/assets/redBottom.png",
+          "alt": "graphic"
+        },
+        "redTablet": {
+          "src": "./constant/assets/redTablet.png",
+          "alt": "graphic"
+        },
+        "redMobile": {
+          "src": "./constant/assets/redMobile.png",
+          "alt": "graphic"
+        },
+        "logo": {
+          "src": "./constant/assets/logo.svg",
+          "alt": "maruti logo"
+        }
+      }
+    },
+
+    "form": {
+      "checkboxText": "I consent to processing of my personal data entered above for Maruti Techlabs to contact me.",
+      "buttonText": "Let's Talk"
+    },
+
+    "companies": {
+      "heading": "TRUSTED BY",
+      "images1": [
+        { "id": 1, "src": "./constant/assets/zuru.png" },
+        { "id": 2, "src": "./constant/assets/ikea.png" },
+        { "id": 3, "src": "./constant/assets/piramal.png" },
+        { "id": 4, "src": "./constant/assets/kalptaru.png" }
+      ],
+      "images2": [
+        { "id": 5, "src": "./constant/assets/ubisoft.png" },
+        { "id": 6, "src": "./constant/assets/sterling.png" },
+        { "id": 7, "src": "./constant/assets/escalon.png" },
+        { "id": 8, "src": "./constant/assets/ea.png" }
+      ]
+    },
+
+    "communication": {
+      "collabHeading": "COLLABORATION WITH US",
+      "callHeading": "REQUEST A DISCOVERY CALL",
+      "officeHeading": "OUR OFFICES",
+      "email": "hello@marutitech.com",
+      "phoneNumber": "+91-79-4009-2968",
+      "phoneNumberHR": "+91-987-910-1067 (HR)",
+      "address1": [
+        "India",
+        "302, Regency Plaza, Nr.",
+        "Anandnagar Crossroads,",
+        "Satellite, Ahmedabad.",
+        "Gujarat- 380015"
+      ],
+      "address2": [
+        "USA",
+        "302, Regency Plaza, Nr.",
+        "Anandnagar Crossroads,",
+        "Satellite, Ahmedabad.",
+        "Gujarat- 380015"
+      ],
+      "images": {
+        "indianFlag": {
+          "alt": "indian flag",
+          "src": "./constant/assets/india.svg"
+        },
+        "americanFlag": {
+          "alt": "american flag",
+          "src": "./constant/assets/usa.svg"
+        }
+      }
+    },
+
+    "awards": {
+      "images": [
+        { "id": 1, "src": "./constant/assets/award.png" },
+        { "id": 2, "src": "./constant/assets/award.png" },
+        { "id": 3, "src": "./constant/assets/award.png" },
+        { "id": 4, "src": "./constant/assets/award.png" },
+        { "id": 5, "src": "./constant/assets/award.png" },
+        { "id": 6, "src": "./constant/assets/award.png" },
+        { "id": 7, "src": "./constant/assets/award.png" },
+        { "id": 8, "src": "./constant/assets/award.png" },
+        { "id": 9, "src": "./constant/assets/award.png" },
+        { "id": 10, "src": "./constant/assets/award.png" }
+      ]
+    }
+  }
+}
