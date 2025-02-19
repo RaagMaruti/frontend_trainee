@@ -49,7 +49,6 @@ export default function Axios() {
           headers: {
             "Content-Type": "application/json",
           },
-          signal: controller.signal,
         },
         { timeout: 500 }
       );
@@ -60,8 +59,6 @@ export default function Axios() {
       } else {
         console.error(error);
       }
-    } finally {
-      clearTimeout(timeoutId);
     }
   }
 
