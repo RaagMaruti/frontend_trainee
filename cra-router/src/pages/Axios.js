@@ -39,10 +39,6 @@ export default function Axios() {
   }
 
   async function handleClick() {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => {
-      controller.abort();
-    }, 1000);
     try {
       const response = await axios.post(
         "https://jsonplaceholder.typicode.com/posts",
@@ -54,14 +50,16 @@ export default function Axios() {
             "Content-Type": "application/json",
           },
           signal: controller.signal,
-        }
+        },
+        { timeout: 500 }
       );
       console.log(response);
     } catch (error) {
-      if (axios.isCancel(error)) {
-        console.log("cannot wait more than 1 second");
+      if (error.code === "ECONNABORTED") {
+        console.error("Request timed out");
+      } else {
+        console.error(error);
       }
-      console.error(error);
     } finally {
       clearTimeout(timeoutId);
     }
