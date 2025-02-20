@@ -143,9 +143,6 @@ export default function Form({ data }: any) {
           <br />
           <div>
             <PhoneInput
-              inputProps={{
-                name: "phone",
-              }}
               placeholder=""
               inputStyle={{
                 border: "none",
@@ -203,16 +200,14 @@ export default function Form({ data }: any) {
           ></textarea>
         </div>
         <div className={styles.checkbox}>
-          <div>
-            <input
-              className={styles.input}
-              type="checkbox"
-              id="consent"
-              name="consent"
-              checked={values.consent}
-              onChange={(e) => handleChange(e?.target)}
-            />
-          </div>
+          <input
+            className={styles.input}
+            type="checkbox"
+            id="consent"
+            name="consent"
+            checked={values.consent}
+            onChange={(e) => handleChange(e?.target)}
+          />
           <label htmlFor="consent">
             {data?.checkboxText}
             <br />

@@ -39,7 +39,7 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
     checked = false,
   }: {
     name: string;
-    value: any;
+    value: string | boolean;
     type?: string;
     checked?: boolean;
   }) => {
@@ -51,7 +51,7 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
       (name === "firstName" || name === "lastName")
     ) {
       newValues[name] = value.replace(/^[^a-zA-Z]$/g, "");
-    } else {
+    } else if (name) {
       newValues[name] = value;
     }
 
@@ -73,8 +73,9 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
       }
     }
 
-    console.log("errors", newErrors);
     setErrors(newErrors);
+    console.log("values", values);
+    console.log("errors", newErrors);
 
     for (let i in newErrors) {
       const { empty, invalid } = newErrors[i];
@@ -90,7 +91,6 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
 
     if (validateForm()) {
       alert("Form Submitted Successfully!");
-      console.log("submit", values);
     } else {
       alert("Form Incomplete!");
     }
