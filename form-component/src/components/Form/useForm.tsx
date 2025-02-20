@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function useForm(initialValues, initialErrors, initialRequired) {
+export default function useForm(initialValues, initialErrors, initialRequired) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
 
-  const validateField = (name, value) => {
+  const validateField = (name: any, value: any) => {
     const newErrors = { ...errors };
 
     if (!value) {
@@ -19,7 +19,7 @@ function useForm(initialValues, initialErrors, initialRequired) {
         invalid: true,
         message: "invalid email address",
       };
-    } else if (name === "phone" && !/^[0-9]{8,15}$/.test(value)) {
+    } else if (name === "phone" && !/^.{8,15}$/.test(value)) {
       newErrors[name] = {
         empty: false,
         invalid: true,
@@ -33,49 +33,45 @@ function useForm(initialValues, initialErrors, initialRequired) {
   };
 
   const handleChange = ({
-		name = "",
-		value = "",
-		type = "",
-		checked = false,
-	}: {
-		name: string;
-		value: string | boolean;
-		type?: string;
-		checked?: boolean;
-	}) => {
-		value = type === "checkbox" ? checked : value;
+    name = "",
+    value = "",
+    type = "",
+    checked = false,
+  }: {
+    name: string;
+    value: any;
+    type?: string;
+    checked?: boolean;
+  }) => {
+    value = type === "checkbox" ? checked : value;
+    const newValues = { ...values };
 
-		const newValues = { ...values };
+    if (
+      typeof value === "string" &&
+      (name === "firstName" || name === "lastName")
+    ) {
+      newValues[name] = value.replace(/^[^a-zA-Z]$/g, "");
+    } else {
+      newValues[name] = value;
+    }
 
-		if (
-			typeof value === "string" &&
-			(name === "firstName" || name === "lastName")
-		) {
-			newValues[name] = value.replace(/^[^a-zA-Z]$/g, "");
-		} else if (typeof value === "string" && name === "phone") {
-			newValues[name] = value.replace(/^[^0-9]$/g, "");
-		} else {
-			newValues[name] = value;
-		}
-
-		setValues(newValues);
-
-		if (name in errors) {
-			validateField(name, value);
-		}
-	};
+    setValues(newValues);
+    if (name in errors) {
+      validateField(name, value);
+    }
+  };
 
   const validateForm = () => {
     const newErrors = { ...errors };
 
     for (let i in initialRequired) {
-			if (initialRequired[i] && !values[i]) {
-				newErrors[i] = {
-					empty: true,
-					message: "required field",
-				};
-			}
-		}
+      if (initialRequired[i] && !values[i]) {
+        newErrors[i] = {
+          empty: true,
+          message: "required field",
+        };
+      }
+    }
 
     console.log("errors", newErrors);
     setErrors(newErrors);
@@ -102,5 +98,3 @@ function useForm(initialValues, initialErrors, initialRequired) {
 
   return { values, errors, handleChange, handleSubmit };
 }
-
-export default useForm;
