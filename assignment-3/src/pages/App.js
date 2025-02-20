@@ -1,15 +1,9 @@
-import { TodoProvider } from "./TodoContext";
-import TodoList from "./TodoList";
+import { useEffect } from "react";
 
-function App() {
-  return (
-    <TodoProvider>
-      <div>
-        <h1>TODO App</h1>
-        <TodoList />
-      </div>
-    </TodoProvider>
-  );
+import useRender from "./useRender";
+
+export default function App() {
+  const render = useRender(<div>hello</div>);
+
+  return <>{render}</>;
 }
-
-export default App;

@@ -7,7 +7,7 @@ import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 
 export default function Form({ data }: any) {
-  const { values, errors, handleChange, handleSubmit } = useForm(
+  const { values, errors, handleChange, handleSubmit, setValues } = useForm(
     {
       firstName: "",
       lastName: "",
@@ -55,9 +55,20 @@ export default function Form({ data }: any) {
     }
   );
 
+  const handleHalfData = () => {
+    values.firstName = "raag";
+    values.lastName = "joshi";
+    values.company = "maruti";
+    values.consent = true;
+  };
+
   return (
     <div>
+      <button className={styles.button} onClick={handleHalfData}>
+        Set Half Data
+      </button>
       <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.inputFields}></div>
         <div className={styles.nameFields}>
           <div className={styles.firstName}>
             <label htmlFor="firstName">First Name* </label>

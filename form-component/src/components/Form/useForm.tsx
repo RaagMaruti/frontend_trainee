@@ -4,6 +4,8 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
 
+  console.log(values);
+
   const validateField = (name: any, value: any) => {
     const newErrors = { ...errors };
 
@@ -33,17 +35,18 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
   };
 
   const handleChange = ({
-    name = "",
-    value = "",
-    type = "",
-    checked = false,
+    name,
+    value,
+    type,
+    checked,
   }: {
     name: string;
-    value: string | boolean;
+    value: string | boolean | undefined;
     type?: string;
     checked?: boolean;
   }) => {
     value = type === "checkbox" ? checked : value;
+    console.log(name, value);
     const newValues = { ...values };
 
     if (
@@ -96,5 +99,5 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
     }
   };
 
-  return { values, errors, handleChange, handleSubmit };
+  return { values, errors, handleChange, handleSubmit, setValues };
 }
