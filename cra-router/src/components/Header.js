@@ -12,6 +12,7 @@ export default function Header() {
       <Link to="/custom">Custom</Link>
       <Link to="/form">Form</Link>
       <Link to="/axios">Axios</Link>
+      <Link to="/imparative">Imparative</Link>
     </nav>
   );
 }

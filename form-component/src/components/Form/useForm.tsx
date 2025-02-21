@@ -99,5 +99,5 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
     }
   };
 
-  return { values, errors, handleChange, handleSubmit, setValues };
+  return { values, errors, handleChange, handleSubmit };
 }
