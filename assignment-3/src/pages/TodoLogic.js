@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
+import { v4 as uuidv4 } from "uuid";
 import Dummy from "./Dummy";
 
 export const TodoContext = createContext();
@@ -9,7 +10,6 @@ export default function TodoLogic() {
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
-  const counter = useRef(todos.length);
 
   function handleTheme() {
     setTheme(theme === "light" ? "dark" : "light");
@@ -27,7 +27,7 @@ export default function TodoLogic() {
     setTodos([
       ...todos,
       {
-        id: ++counter.current,
+        id: uuidv4(),
         name: query,
         completed: false,
       },
