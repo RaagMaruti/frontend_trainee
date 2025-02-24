@@ -7,7 +7,7 @@ export default function Profile() {
   return (
     <div>
       <p>
-        Hello <b>{username}</b>, how are you ?
+        Hello <u>{username}</u>, how are you ?
       </p>
     </div>
   );

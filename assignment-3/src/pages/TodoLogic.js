@@ -1,4 +1,9 @@
-import { useState, useEffect, createContext } from "react";
+import {
+  useState,
+  useEffect,
+  createContext,
+  useSyncExternalStore,
+} from "react";
 import { v4 as uuidv4 } from "uuid";
 import Dummy from "./Dummy";
 
@@ -6,18 +11,10 @@ export const TodoContext = createContext();
 
 export default function TodoLogic() {
   const [query, setQuery] = useState("");
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [todos, setTodos] = useState(
     JSON.parse(localStorage.getItem("todos")) || []
   );
-
-  function handleTheme() {
-    setTheme(theme === "light" ? "dark" : "light");
-  }
-
-  useEffect(() => {
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const theme = useSyncExternalStore(subscribe, getSnapshot);
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -66,6 +63,20 @@ export default function TodoLogic() {
     return <ul>{list}</ul>;
   }
 
+  function subscribe(callback) {
+    window.addEventListener("storage", callback);
+    return () => window.removeEventListener("storage", callback);
+  }
+
+  function getSnapshot() {
+    return localStorage.getItem("theme") || "light";
+  }
+
+  function handleTheme() {
+    localStorage.setItem("theme", theme === "light" ? "dark" : "light");
+    window.dispatchEvent(new Event("storage"));
+  }
+
   return (
     <TodoContext.Provider
       value={{
@@ -77,7 +88,7 @@ export default function TodoLogic() {
         listTodos,
       }}
     >
-      <button onClick={handleTheme}>change theme</button>
+      <button onClick={handleTheme}>{theme} theme</button>
       <Dummy />
     </TodoContext.Provider>
   );

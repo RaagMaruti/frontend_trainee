@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import Profile from "./Profile";
+import useBold from "../hooks/useBold";
 
 export default function WelcomeMessage({ prop }) {
-  return (
+  const jsx = useBold(
     <div>
       <h1
         style={{
@@ -15,6 +16,8 @@ export default function WelcomeMessage({ prop }) {
       <Profile />
     </div>
   );
+
+  return <>{jsx}</>;
 }
 
 WelcomeMessage.propTypes = {
@@ -33,7 +36,6 @@ WelcomeMessage.propTypes = {
   // react element
   ele: PropTypes.element,
 };
-
 
 // only in dev mode
 // stripped out in production

@@ -1,3 +1,8 @@
+import { useDebugValue, useState } from "react";
+
 export default function useBold(jsx) {
-  return <b>{jsx}</b>;
+  const [ui, setUi] = useState(jsx);
+  useDebugValue(jsx ? "ui is there" : "no ui");
+
+  return <b>{ui}</b>;
 }
