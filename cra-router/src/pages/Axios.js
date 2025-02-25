@@ -1,45 +1,58 @@
-import { useEffect, useState } from "react";
-
+import React, {
+  useEffect,
+  useState,
+  useOptimistic,
+  useTransition,
+} from "react";
 import axios from "axios";
 
-export default function Axios() {
+const App = () => {
   const [comm, setComm] = useState(null);
+  const [isPending, startTransition] = useTransition();
+  const [dis, setDis] = useState(0);
+  const [reqCount, setReqCount] = useOptimistic(dis, (curr, opt) => curr + opt);
 
   axios.interceptors.request.use(
-    function (config) {
-      console.log("sending request");
-      config.headers.Authorization = "my token"
+    (config) => {
+      console.log("Sending request...");
+      config.headers.Authorization = "my token";
       return config;
     },
-    function (error) {
-      return Promise.reject(error);
-    }
+    (error) => Promise.reject(error)
   );
 
   axios.interceptors.response.use(
-    function (response) {
-      console.log("getting response");
+    (response) => {
+      console.log("Getting response...");
       if (response.status === 200) {
         return { success: true, json: response.data.data.communication };
       }
       return response;
     },
-    function (error) {
-      return Promise.reject(error);
-    }
+    (error) => Promise.reject(error)
   );
 
   async function getData() {
+    startTransition(() => {
+      setReqCount(1);
+    });
+
     try {
       const response = await axios.get("/data.json");
       console.log(response);
-      setComm(response.json);
+      setComm(response.data);
+      setDis((d) => d + 1);
     } catch (error) {
       console.error(error);
+      setReqCount(-1);
     }
   }
 
   async function handleClick() {
+    startTransition(() => {
+      setReqCount(1);
+    });
+
     try {
       const response = await axios.post(
         "https://jsonplaceholder.typicode.com/posts",
@@ -53,6 +66,7 @@ export default function Axios() {
           timeout: 1000,
         }
       );
+      setDis((d) => d + 1);
       console.log(response);
     } catch (error) {
       if (error.code === "ECONNABORTED") {
@@ -60,24 +74,13 @@ export default function Axios() {
       } else {
         console.error(error);
       }
+      setReqCount(-1);
     }
   }
 
-  // const handleUpdate = async () => {
-  //   try {
-  //     const response = await axios.put(
-  //       "https://jsonplaceholder.typicode.com/posts/",
-  //       { params: "1" },
-  //       {
-  //         title: "Updated Title",
-  //         body: "This is the updated body of the post",
-  //       }
-  //     );
-  //     console.log("Updated Post:", response);
-  //   } catch (error) {
-  //     console.error("Error updating post:", error);
-  //   }
-  // };
+  useEffect(() => {
+    console.log("mujjj", reqCount);
+  }, [reqCount]);
 
   useEffect(() => {
     getData();
@@ -86,25 +89,13 @@ export default function Axios() {
   return (
     <div style={{ padding: "1em" }}>
       <p>{comm && comm.callHeading}</p>
-      <button
-        onClick={handleClick}
-        // onClick={handleUpdate}
-      >
-        Send Data
+      <button onClick={handleClick} disabled={isPending}>
+        Send Data {isPending && "(Updating...)"}
       </button>
     </div>
   );
-}
+};
 
-// Feature	                Fetch	                              Axios
+export default App;
 
-// Ease of Use	            Manual parsing	                    Automatic parsing
-// Error Handling	          Requires response.ok check	        Rejects on HTTP errors
-// Data Transformation	    Manual JSON parsing	                Automatic JSON parsing
-// Timeout Handling	        Requires AbortController	          Built-in timeout option
-// Request Interceptors     Not supported	                      Supported
-// Request Cancellation	    AbortController	                    CancelToken
-// Query Parameters	        Manual string building	            params option
-// Upload/Download      	  Requires extra code	                Built-in tracking
-// CORS Handling	          Requires credentials: 'include'	    withCredentials: true
-// Node.js Support	        Needs node-fetch	                  Works natively
+// optimistic does not have a typical state, it wont be updated on change or render, for that use separte state

@@ -13,6 +13,7 @@ import Custom from "./pages/Custom";
 import Form from "./pages/Form";
 import Axios from "./pages/Axios";
 import Imparative from "./pages/Imparative";
+import Action from "./pages/Action";
 import Header from "./components/Header";
 import "./index.css";
 
@@ -30,8 +31,9 @@ root.render(
       <Route path="/transition" element={<Transition />} />
       <Route path="/custom" element={<Custom />} />
       <Route path="/form" element={<Form />} />
-      <Route path="/axios" element={<Axios />} />
+      {/* <Route path="/axios" element={<Axios />} /> */}
       <Route path="/imparative" element={<Imparative />} />
+      {/* <Route path="/action" element={<Action />} /> */}
     </Routes>
   </BrowserRouter>
 );
