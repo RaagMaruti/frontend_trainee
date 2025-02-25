@@ -1,76 +1,72 @@
 import React, {
-  useState,
-  useEffect,
-  useMemo,
-  useRef,
-  useCallback,
-  useId,
+	useState,
+	useEffect,
+	// useRef,
+	useId,
+	useMemo,
+	useCallback,
 } from "react";
 
 function Name() {
-  const [name, setName] = useState("React");
-  const idName = useId();
-  // generate dynamic id, even for same component
+	const [name, setName] = useState("React");
+	const idName = useId(); // generate dynamic id, even for same component
 
-  useEffect(() => {
-    console.log("Name updated to:", name);
-  }, [name]);
+	useEffect(() => {
+		console.log("Name updated to:", name);
+	}, [name]);
 
-  return (
-    <div>
-      <p id={idName}>Name: {name}</p>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        aria-describedby={idName}
-      />
-    </div>
-  );
+	return (
+		<div>
+			<p id={idName}>Name: {name}</p>
+			<input
+				type="text"
+				value={name}
+				onChange={(e) => setName(e.target.value)}
+				aria-describedby={idName}
+			/>
+		</div>
+	);
 }
 
+const Example = React.memo(({ handleClick, memoState }) => {
+	console.log("rendered Example component");
+	return <button onClick={handleClick}>memo value - {memoState}</button>;
+});
+
 export default function FunctionLifecycle() {
-  const [count, setCount] = useState(0);
-  const timer = useRef(0);
-  // Persists beween 2 renders, without causing re-renders
+	// const timer = useRef(0);
+	// Persists beween 2 renders, without causing re-renders
+	// useEffect(() => {
+	// 	console.log("Mounted");
+	// 	const inter = setInterval(() => {
+	// 		console.log("Timer -", ++timer.current);
+	// 	}, 1000);
 
-  useEffect(() => {
-    console.log("Count changed to:", count);
-  }, [count]);
+	// 	return () => {
+	// 		clearInterval(inter);
+	// 		console.log("Unmounted");
+	// 	};
+	// }, []);
 
-  // do not calculate on renders, only on count changes
-  const expensiveCalculation = useMemo(() => {
-    console.log("Running expensive calculation...");
-    return count * 1000;
-  }, [count]);
+	const [count, setCount] = useState(0);
+	const [state, setState] = useState(0);
 
-  useEffect(() => {
-    console.log("Mounted");
-    hello();
-    const inter = setInterval(() => {
-      console.log("Timer -", ++timer.current);
-    }, 1000);
+	const memoState = useMemo(() => {
+		console.log("memo", state);
+		return state * 1000;
+	}, [state]);
 
-    return () => {
-      clearInterval(inter);
-      console.log("Unmounted");
-    };
-  }, []);
+	const handleClick = useCallback(() => {
+		setState((s) => s + 1);
+		console.log("changed", state);
+	}, [state]);
 
-  const hello = useCallback(() => {
-    console.log("No re-creation of this function on renders");
-  }, []);
-
-  return (
-    <div style={{ padding: "1em" }}>
-      <h1>Functional Lifecycle Demo</h1>
-      <p>Count: {count}</p>
-      <p>Expensive Calculation: {expensiveCalculation}</p>
-      <button onClick={() => setCount((prev) => prev + 1)}>
-        Increment Count
-      </button>
-      <Name />
-      <Name />
-    </div>
-  );
+	return (
+		<div style={{ padding: "1em" }}>
+			<button onClick={() => setCount((c) => c + 1)}>count - {count}</button>
+			<Example handleClick={handleClick} memoState={memoState} />
+			<Name />
+			<Name />
+		</div>
+	);
 }

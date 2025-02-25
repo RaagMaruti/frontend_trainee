@@ -141,116 +141,116 @@ export default function Custom() {
   );
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>first name</label>
-          <input
-            maxLength="50"
-            type="text"
-            name="firstName"
-            value={values.name}
-            onChange={handleChange}
-            onBlur={handleChange}
-          />
-          <span style={{ color: "red" }}>{errors.firstName.message}</span>
-        </div>
+		<div>
+			<form onSubmit={handleSubmit}>
+				<div>
+					<label>first name</label>
+					<input
+						maxLength="50"
+						type="text"
+						name="firstName"
+						value={values.name}
+						onChange={handleChange}
+						onBlur={handleChange}
+					/>
+					<span style={{ color: "red" }}>{errors.firstName.message}</span>
+				</div>
 
-        <div>
-          <label>last name</label>
-          <input
-            maxLength="50"
-            type="text"
-            name="lastName"
-            value={values.name}
-            onChange={handleChange}
-            onBlur={handleChange}
-          />
-          <span style={{ color: "red" }}>{errors.lastName.message}</span>
-        </div>
+				<div>
+					<label>last name</label>
+					<input
+						maxLength="50"
+						type="text"
+						name="lastName"
+						value={values.name}
+						onChange={handleChange}
+						onBlur={handleChange}
+					/>
+					<span style={{ color: "red" }}>{errors.lastName.message}</span>
+				</div>
 
-        <div>
-          <label>email</label>
-          <input
-            maxLength="50"
-            type="email"
-            name="email"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleChange}
-          />
-          <span style={{ color: "red" }}>{errors.email.message}</span>
-        </div>
+				<div>
+					<label>email</label>
+					<input
+						maxLength="50"
+						type="email"
+						name="email"
+						value={values.email}
+						onChange={handleChange}
+						onBlur={handleChange}
+					/>
+					<span style={{ color: "red" }}>{errors.email.message}</span>
+				</div>
 
-        <div>
-          <label>phone number</label>
-          <input
-            type="text"
-            name="phone"
-            value={values.phone}
-            onChange={handleChange}
-            onBlur={handleChange}
-          />
-          <span style={{ color: "red" }}>{errors.phone.message}</span>
-        </div>
+				<div>
+					<label>phone number</label>
+					<input
+						type="text"
+						name="phone"
+						value={values.phone}
+						onChange={handleChange}
+						onBlur={handleChange}
+					/>
+					<span style={{ color: "red" }}>{errors.phone.message}</span>
+				</div>
 
-        <div>
-          <label>how did you hear about us?</label>
-          <input
-            maxLength="50"
-            type="text"
-            name="hear"
-            value={values.hear}
-            onChange={handleChange}
-            onBlur={handleChange}
-          />
-        </div>
+				<div>
+					<label>how did you hear about us?</label>
+					<input
+						maxLength="50"
+						type="text"
+						name="hear"
+						value={values.hear}
+						onChange={handleChange}
+						onBlur={handleChange}
+					/>
+				</div>
 
-        <div>
-          <label>company</label>
-          <input
-            maxLength="50"
-            type="text"
-            name="company"
-            value={values.company}
-            onChange={handleChange}
-            onBlur={handleChange}
-          />
-        </div>
+				<div>
+					<label>company</label>
+					<input
+						maxLength="50"
+						type="text"
+						name="company"
+						value={values.company}
+						onChange={handleChange}
+						onBlur={handleChange}
+					/>
+				</div>
 
-        <div>
-          <label>what can we help you with?</label>
-          <br />
-          <textarea
-            maxLength="500"
-            rows="5"
-            cols="50"
-            name="help"
-            value={values.help}
-            onChange={handleChange}
-            onBlur={handleChange}
-          />
-        </div>
+				<div>
+					<label>what can we help you with?</label>
+					<br />
+					<textarea
+						maxLength="500"
+						rows="5"
+						cols="50"
+						name="help"
+						value={values.help}
+						onChange={handleChange}
+						onBlur={handleChange}
+					/>
+				</div>
 
-        <div>
-          <label>
-            <input
-              type="checkbox"
-              name="consent"
-              checked={values.consent}
-              onChange={handleChange}
-              onBlur={handleChange}
-            />
-            I consent to the terms and conditions
-          </label>
+				<div>
+					<label>
+						<input
+							type="checkbox"
+							name="consent"
+							checked={values.consent}
+							onChange={handleChange}
+							onBlur={handleChange}
+						/>
+						I consent to the terms and conditions
+					</label>
 
-          <span style={{ color: "red" }}>{errors.consent.message}</span>
-        </div>
+					<span style={{ color: "red" }}>{errors.consent.message}</span>
+				</div>
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  );
+				<button type="submit">Submit</button>
+			</form>
+		</div>
+	);
 }
 
 // function useFetch(url) {

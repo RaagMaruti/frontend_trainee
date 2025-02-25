@@ -1,12 +1,12 @@
 import React, { useImperativeHandle, useRef, forwardRef } from "react";
 
 const Child = forwardRef((props, ref) => {
-  useImperativeHandle(ref, () => ({
-    alertMessage: () => {
-      alert("Hello from Child!");
-    },
-    value: "child",
-  }));
+	useImperativeHandle(ref, () => ({
+		alertMessage: () => {
+			alert("Hello from Child!");
+		},
+		value: "child",
+	}));
 });
 
 const Imparative = () => {

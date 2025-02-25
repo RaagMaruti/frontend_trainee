@@ -9,13 +9,13 @@ export default function Counter() {
   const [count, dispatch, isPending] = useActionState(incrementCounter, 0);
 
   return (
-    <div>
-      <h2>Counter: {count}</h2>
-      <button onClick={() => dispatch()} disabled={isPending}>
-        {isPending ? "Updating..." : "Increment"}
-      </button>
-    </div>
-  );
+		<div>
+			<h2>Counter: {count}</h2>
+			<button onClick={() => dispatch()} disabled={isPending}>
+				{isPending ? "Updating..." : "Increment"}
+			</button>
+		</div>
+	);
 }
 
 

@@ -14,26 +14,28 @@ import Form from "./pages/Form";
 import Axios from "./pages/Axios";
 import Imparative from "./pages/Imparative";
 import Action from "./pages/Action";
+import Example from "./pages/Example";
 import Header from "./components/Header";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <Header />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/data" element={<Data />} />
-      <Route path="/function-lifecycle" element={<FunctionLifecycle />} />
-      <Route path="/class-lifecycle" element={<ClassLifecycle />} />
-      <Route path="/effects" element={<Effects />} />
-      <Route path="/deferred" element={<Deferred />} />
-      <Route path="/transition" element={<Transition />} />
-      <Route path="/custom" element={<Custom />} />
-      <Route path="/form" element={<Form />} />
-      {/* <Route path="/axios" element={<Axios />} /> */}
-      <Route path="/imparative" element={<Imparative />} />
-      {/* <Route path="/action" element={<Action />} /> */}
-    </Routes>
-  </BrowserRouter>
+	<BrowserRouter>
+		<Header />
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/data" element={<Data />} />
+			<Route path="/function-lifecycle" element={<FunctionLifecycle />} />
+			<Route path="/class-lifecycle" element={<ClassLifecycle />} />
+			<Route path="/effects" element={<Effects />} />
+			<Route path="/deferred" element={<Deferred />} />
+			<Route path="/transition" element={<Transition />} />
+			<Route path="/custom" element={<Custom />} />
+			<Route path="/form" element={<Form />} />
+			<Route path="/imparative" element={<Imparative />} />
+			<Route path="/example" element={<Example />} />
+			{/* <Route path="/axios" element={<Axios />} /> */}
+			{/* <Route path="/action" element={<Action />} /> */}
+		</Routes>
+	</BrowserRouter>
 );
