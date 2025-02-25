@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import "./Form.css";
 
 export default function App() {
-    setValue,
 	const {
 		register,
 		formState: { errors },
