@@ -1,37 +1,28 @@
 import React, { useState, useTransition } from "react";
-const items = Array.from({ length: 20000 }, (_, i) => i);
+import List from "./List";
 
-const Transition = () => {
+const items = Array.from({ length: 7000 }, (_, i) => i);
+
+export default function Transition() {
   const [filteredItems, setFilteredItems] = useState(items);
-  const [isPending, startTransition] = useTransition(); // useTransition
+  const [isPending, startTransition] = useTransition();
   const [count, setCount] = useState(0);
 
-  const handleFilterChange = () => {
+  function handleFilterChange() {
     setCount((count) => count + 1); // high priority
     startTransition(() => {
-      // low priority
-      setFilteredItems(items.filter((item) => item % 2 !== 0));
+      setFilteredItems(items.filter((item) => item % 2 !== 0)); // low priority
     });
-  };
+  }
 
   return (
     <div>
       <button onClick={handleFilterChange}>Filter Items</button>
-      <p>fetched {count} times</p>
-      {isPending ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {filteredItems.map((item) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      )}
+      <p>clicked {count} times</p>
+      {isPending ? <p>Loading...</p> : <List items={filteredItems} />}
     </div>
   );
-};
-
-export default Transition;
+}
 
 // Scenario	                                            useTransition	  useDeferredValue
 // Rendering a large list after clicking a button	      Yes	            No

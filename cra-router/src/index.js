@@ -11,11 +11,11 @@ import Transition from "./pages/Transition";
 import Deferred from "./pages/Deferred";
 import Custom from "./pages/Custom";
 import Form from "./pages/Form";
-import Axios from "./pages/Axios";
 import Imparative from "./pages/Imparative";
-import Action from "./pages/Action";
 import Example from "./pages/Example";
 import Header from "./components/Header";
+// import Axios from "./pages/Axios";
+// import Action from "./pages/Action";
 import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
