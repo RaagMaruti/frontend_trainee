@@ -14,6 +14,7 @@ import Form from "./pages/Form";
 import Imparative from "./pages/Imparative";
 import Example from "./pages/Example";
 import Header from "./components/Header";
+import Bio from "./components/Bio";
 // import Axios from "./pages/Axios";
 // import Action from "./pages/Action";
 import "./index.css";
@@ -24,16 +25,19 @@ root.render(
 		<Header />
 		<Routes>
 			<Route path="/" element={<Home />} />
-			<Route path="/data" element={<Data />} />
-			<Route path="/function-lifecycle" element={<FunctionLifecycle />} />
-			<Route path="/class-lifecycle" element={<ClassLifecycle />} />
-			<Route path="/effects" element={<Effects />} />
-			<Route path="/deferred" element={<Deferred />} />
-			<Route path="/transition" element={<Transition />} />
-			<Route path="/custom" element={<Custom />} />
-			<Route path="/form" element={<Form />} />
-			<Route path="/imparative" element={<Imparative />} />
-			<Route path="/example" element={<Example />} />
+			<Route path="data" element={<Data />}>
+				<Route index element={<>standard data</>} />
+				<Route path="bio/:name?/:team" element={<Bio />} />
+			</Route>
+			<Route path="function-lifecycle" element={<FunctionLifecycle />} />
+			<Route path="class-lifecycle" element={<ClassLifecycle />} />
+			<Route path="effects" element={<Effects />} />
+			<Route path="deferred" element={<Deferred />} />
+			<Route path="transition" element={<Transition />} />
+			<Route path="custom" element={<Custom />} />
+			<Route path="form" element={<Form />} />
+			<Route path="imparative" element={<Imparative />} />
+			<Route path="example" element={<Example />} />
 			{/* <Route path="/axios" element={<Axios />} /> */}
 			{/* <Route path="/action" element={<Action />} /> */}
 		</Routes>
