@@ -13,6 +13,7 @@ import Custom from "./pages/Custom";
 import Form from "./pages/Form";
 import Imparative from "./pages/Imparative";
 import Example from "./pages/Example";
+import Portal from "./pages/Portal";
 import Header from "./components/Header";
 import Bio from "./components/Bio";
 // import Axios from "./pages/Axios";
@@ -38,6 +39,7 @@ root.render(
 			<Route path="form" element={<Form />} />
 			<Route path="imparative" element={<Imparative />} />
 			<Route path="example" element={<Example />} />
+			<Route path="portal" element={<Portal />} />
 			{/* <Route path="/axios" element={<Axios />} /> */}
 			{/* <Route path="/action" element={<Action />} /> */}
 		</Routes>

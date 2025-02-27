@@ -13,6 +13,7 @@ export default function Header() {
 			<Link to="/form">Form</Link>
 			<Link to="/imparative">Imparative</Link>
 			<Link to="/example">Example</Link>
+			<Link to="/portal">Portal</Link>
 			{/* <Link to="/axios">Axios</Link> */}
 			{/* <Link to="/action">Action</Link> */}
 		</nav>
