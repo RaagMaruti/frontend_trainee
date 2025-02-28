@@ -3,8 +3,37 @@ import { useState } from "react";
 export default function useForm(initialValues, initialErrors, initialRequired) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState(initialErrors);
+  const [errorMessages, setErrorMessages] = useState({
+    empty: "",
+    invalid: "",
+  });
 
-  console.log(values);
+  const constructErrorMessages = (newErrors) => {
+    const newErrorMessages = { ...errorMessages };
+    if (
+      newErrors.firstName.empty ||
+      newErrors.lastName.empty ||
+      newErrors.emailAddress.empty ||
+      newErrors.phoneNumber.empty ||
+      newErrors.consent.empty
+    ) {
+      newErrorMessages.empty = "Please fill mandatory fields*";
+    } else {
+      newErrorMessages.empty = "";
+    }
+
+    if (newErrors.emailAddress.invalid && newErrors.phoneNumber.invalid) {
+      newErrorMessages.invalid = "Please enter valid Email ID and Phone Number";
+    } else if (newErrors.emailAddress.invalid) {
+      newErrorMessages.invalid = "Please enter a valid Email ID";
+    } else if (newErrors.phoneNumber.invalid) {
+      newErrorMessages.invalid = "Please enter a valid Phone Number";
+    } else {
+      newErrorMessages.invalid = "";
+    }
+
+    setErrorMessages(newErrorMessages);
+  };
 
   const validateField = (name: any, value: any) => {
     const newErrors = { ...errors };
@@ -13,48 +42,45 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
       newErrors[name] = {
         empty: true,
         invalid: false,
-        message: "required field",
       };
-    } else if (name === "email" && !/^\S+@\S+\.\S+$/.test(value)) {
+    } else if (name === "emailAddress" && !/\S+@\S+\.\S+/.test(value)) {
       newErrors[name] = {
         empty: false,
         invalid: true,
-        message: "invalid email address",
       };
-    } else if (name === "phone" && !/^.{8,15}$/.test(value)) {
+    } else if (name === "phoneNumber" && !/.{8,15}/.test(value)) {
       newErrors[name] = {
         empty: false,
         invalid: true,
-        message: "invalid phone number",
       };
     } else {
       newErrors[name] = initialErrors[name];
     }
 
     setErrors(newErrors);
+    constructErrorMessages(newErrors);
   };
 
   const handleChange = ({
-    name,
-    value,
-    type,
-    checked,
+    name = "",
+    value = "",
+    type = "",
+    checked = false,
   }: {
     name: string;
-    value: string | boolean | undefined;
+    value: any;
     type?: string;
     checked?: boolean;
   }) => {
     value = type === "checkbox" ? checked : value;
-    console.log(name, value);
     const newValues = { ...values };
 
     if (
       typeof value === "string" &&
       (name === "firstName" || name === "lastName")
     ) {
-      newValues[name] = value.replace(/^[^a-zA-Z]$/g, "");
-    } else if (name) {
+      newValues[name] = value.replace(/[^a-zA-Z0-9]/g, "");
+    } else {
       newValues[name] = value;
     }
 
@@ -71,14 +97,12 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
       if (initialRequired[i] && !values[i]) {
         newErrors[i] = {
           empty: true,
-          message: "required field",
         };
       }
     }
 
     setErrors(newErrors);
-    console.log("values", values);
-    console.log("errors", newErrors);
+    constructErrorMessages(newErrors);
 
     for (let i in newErrors) {
       const { empty, invalid } = newErrors[i];
@@ -93,11 +117,11 @@ export default function useForm(initialValues, initialErrors, initialRequired) {
     e.preventDefault();
 
     if (validateForm()) {
+      setValues(initialValues);
+      setErrors(initialErrors);
       alert("Form Submitted Successfully!");
-    } else {
-      alert("Form Incomplete!");
     }
   };
 
-  return { values, errors, handleChange, handleSubmit };
+  return { values, errors, errorMessages, handleChange, handleSubmit };
 }

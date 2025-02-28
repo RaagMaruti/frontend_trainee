@@ -1,79 +1,70 @@
-"use client";
-
 import styles from "./Form.module.css";
 import useForm from "./useForm";
 
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 
-export default function Form({ data }: any) {
-  const { values, errors, handleChange, handleSubmit } = useForm(
+export default function Form({ fields, button, text }: any) {
+  const { values, errors, errorMessages, handleChange, handleSubmit } = useForm(
     {
       firstName: "",
       lastName: "",
-      email: "",
-      phone: "",
-      hear: "",
-      company: "",
-      help: "",
+      emailAddress: "",
+      phoneNumber: "",
+      howDidYouHearAboutUs: "",
+      companyName: "",
+      howCanWeHelpYou: "",
       consent: false,
     },
     {
       firstName: {
         empty: false,
-        message: "",
       },
       lastName: {
         empty: false,
-        message: "",
       },
-      email: {
+      emailAddress: {
         empty: false,
         invalid: false,
-        message: "",
       },
-
-      phone: {
+      phoneNumber: {
         empty: false,
         invalid: false,
-        message: "",
       },
       consent: {
         empty: false,
-        message: "",
       },
     },
     {
       firstName: true,
       lastName: true,
-      email: true,
-      phone: true,
-      hear: false,
-      company: false,
-      help: false,
+      emailAddress: true,
+      phoneNumber: true,
+      howDidYouHearAboutUs: false,
+      companyName: false,
+      howCanWeHelpYou: false,
       consent: true,
     }
   );
 
   return (
-    <div>
+    <>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.inputFields}></div>
         <div className={styles.nameFields}>
           <div className={styles.firstName}>
-            <label htmlFor="firstName">First Name* </label>
-            <span
-              style={{
-                marginLeft: "10px",
-                fontSize: "14px",
-                color: "#f05443",
-              }}
+            <label
+              className={errors.firstName.empty ? styles.errorLabel : undefined}
+              htmlFor="firstName"
             >
-              {errors.firstName.message}
-            </span>
+              {fields.fieldNameFor_FirstName}
+            </label>
             <br />
             <input
-              className={styles.input}
+              className={
+                errors.firstName.empty
+                  ? `${styles.errorInput} ${styles.input}`
+                  : `${styles.input}`
+              }
               type="text"
               id="firstName"
               name="firstName"
@@ -84,19 +75,19 @@ export default function Form({ data }: any) {
             />
           </div>
           <div className={styles.lastName}>
-            <label htmlFor="lastName">Last Name*</label>
-            <span
-              style={{
-                marginLeft: "10px",
-                fontSize: "14px",
-                color: "#f05443",
-              }}
+            <label
+              className={errors.lastName.empty ? styles.errorLabel : undefined}
+              htmlFor="lastName"
             >
-              {errors.lastName.message}
-            </span>
+              {fields.fieldNameFor_LastName}
+            </label>
             <br />
             <input
-              className={styles.input}
+              className={
+                errors.lastName.empty
+                  ? `${styles.errorInput} ${styles.input}`
+                  : `${styles.input}`
+              }
               type="text"
               id="lastName"
               name="lastName"
@@ -108,95 +99,121 @@ export default function Form({ data }: any) {
           </div>
         </div>
         <div className={styles.inputFields}>
-          <label htmlFor="email">Email Address*</label>
-          <span
-            style={{
-              marginLeft: "10px",
-              fontSize: "14px",
-              color: "#f05443",
-            }}
+          <label
+            className={
+              errors.emailAddress.empty || errors.emailAddress.invalid
+                ? styles.errorLabel
+                : undefined
+            }
+            htmlFor="email"
           >
-            {errors.email.message}
-          </span>
+            {fields.fieldNameFor_EmailAddress}
+          </label>
           <br />
           <input
-            className={styles.input}
+            className={
+              errors.emailAddress.empty
+                ? `${styles.errorInput} ${styles.input}`
+                : `${styles.input}`
+            }
             type="email"
-            id="email"
-            name="email"
+            id="emailAddress"
+            name="emailAddress"
             maxLength={50}
-            value={values.email}
+            value={values.emailAddress}
             onChange={(e) => handleChange(e?.target)}
             onBlur={(e) => handleChange(e?.target)}
           />
         </div>
         <div className={styles.inputFields}>
-          <label>Phone Number*</label>
-          <span
-            style={{
-              marginLeft: "10px",
-              fontSize: "14px",
-              color: "#f05443",
-            }}
+          <label
+            className={
+              errors.phoneNumber.empty || errors.phoneNumber.invalid
+                ? styles.errorLabel
+                : undefined
+            }
           >
-            {errors.phone.message}
-          </span>
+            {fields.fieldNameFor_PhoneNumber}
+          </label>
           <br />
           <div>
             <PhoneInput
               placeholder=""
-              inputStyle={{
-                border: "none",
-                width: "100%",
-                height: "41px",
-                boxShadow: "none",
-              }}
-              buttonStyle={{
-                border: "none",
-                backgroundColor: "white",
-              }}
+              inputStyle={
+                errors.phoneNumber.empty || errors.phoneNumber.invalid
+                  ? {
+                      border: "1px solid #ff0000",
+                      width: "100%",
+                      height: "41px",
+                      boxShadow: "none",
+                      marginTop: " 0.625rem !important",
+                    }
+                  : {
+                      border: "1px solid transparent",
+                      width: "100%",
+                      height: "41px",
+                      boxShadow: "none",
+                      marginTop: " 0.625rem !important",
+                    }
+              }
+              buttonStyle={
+                errors.phoneNumber.empty || errors.phoneNumber.invalid
+                  ? {
+                      borderWidth: "1px 0px 1px 1px",
+                      borderColor: "#ff0000",
+                      backgroundColor: "white",
+                    }
+                  : {
+                      border: "none",
+                      backgroundColor: "white",
+                    }
+              }
               country="in"
-              value={values.phone}
-              onChange={(value) => handleChange({ value, name: "phone" })}
+              value={values.phoneNumber}
+              onChange={(value) => handleChange({ value, name: "phoneNumber" })}
               onBlur={(e) => handleChange(e?.target)}
             />
           </div>
         </div>
         <div className={styles.inputFields}>
-          <label htmlFor="hear">How Did You Hear About Us?</label>
+          <label htmlFor="howDidYouHearAboutUs">
+            {fields.fieldNameFor_HowDidYouHearAboutUs}
+          </label>
           <br />
           <input
             className={styles.input}
             type="text"
-            id="hear"
-            name="hear"
+            id="howDidYouHearAboutUs"
+            name="howDidYouHearAboutUs"
             maxLength={100}
-            value={values.hear}
+            value={values.howDidYouHearAboutUs}
             onChange={(e) => handleChange(e?.target)}
           ></input>
         </div>
         <div className={styles.inputFields}>
-          <label htmlFor="company">Company</label>
+          <label htmlFor="companyName">{fields.fieldNameFor_CompanyName}</label>
           <br />
           <input
             className={styles.input}
             type="text"
-            id="company"
-            name="company"
+            id="companyName"
+            name="companyName"
             maxLength={50}
-            value={values.company}
+            value={values.companyName}
             onChange={(e) => handleChange(e?.target)}
           />
         </div>
         <div className={styles.inputFields}>
-          <label htmlFor="help">What Can We Help You With?</label>
+          <label className={styles.errLabel} htmlFor="howCanWeHelpYou">
+            {fields.fieldNameFor_HowCanWeHelpYou}
+          </label>
           <br />
           <textarea
             className={styles.textarea}
-            id="help"
-            name="help"
+            id="howCanWeHelpYou"
+            name="howCanWeHelpYou"
             maxLength={500}
-            value={values.help}
+            value={values.howCanWeHelpYou}
             onChange={(e) => handleChange(e?.target)}
           ></textarea>
         </div>
@@ -209,25 +226,24 @@ export default function Form({ data }: any) {
             checked={values.consent}
             onChange={(e) => handleChange(e?.target)}
           />
-          <label htmlFor="consent">
-            {data?.checkboxText}
-            <br />
-            <span
-              style={{
-                fontSize: "14px",
-                color: "#f05443",
-              }}
-            >
-              {errors.consent.message}
-            </span>
+          <label
+            className={errors.consent.empty ? styles.errorLabel : undefined}
+          >
+            {text}
           </label>
         </div>
-        <div className={styles.inputFields}>
-          <button className={styles.button} type="submit">
-            {data?.buttonText}
-          </button>
+        <button
+          className={styles.button}
+          type="submit"
+          disabled={errorMessages.empty || errorMessages.invalid ? true : false}
+        >
+          {button}
+        </button>
+        <div className={styles.errorMessages}>
+          <div>{errorMessages.empty && errorMessages.empty}</div>
+          <div>{errorMessages.invalid && errorMessages.invalid}</div>
         </div>
       </form>
-    </div>
+    </>
   );
 }
