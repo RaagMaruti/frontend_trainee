@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "latest_episodes",
+  "info": {
+    "singularName": "latest-episode",
+    "pluralName": "latest-episodes",
+    "displayName": "Latest Episode",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "title"
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "default": "description"
+    },
+    "ytVideoLink": {
+      "type": "string",
+      "required": true
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "playButton": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}
