@@ -1,5 +1,7 @@
+"use client"
+
 import { useContext } from "react";
-import { ProfileContext } from "../pages/Home";
+import { ProfileContext } from "../app/page.js";
 
 export default function Profile() {
   // context variables are global but read-only

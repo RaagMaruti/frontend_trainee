@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Profile from "./Profile";
 import useBold from "../hooks/useBold";
 
@@ -7,6 +7,7 @@ export default function WelcomeMessage({ prop }) {
     <div>
       <h1
         style={{
+          fontSize: "2rem",
           fontWeight: prop.weight,
           color: prop.color,
         }}
@@ -20,22 +21,22 @@ export default function WelcomeMessage({ prop }) {
   return <>{jsx}</>;
 }
 
-WelcomeMessage.propTypes = {
-  prop: PropTypes.shape({
-    weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-      .isRequired,
-    color: PropTypes.oneOf(["orange", "coral"]).isRequired,
-  }),
+// WelcomeMessage.propTypes = {
+//   prop: PropTypes.shape({
+//     weight: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+//       .isRequired,
+//     color: PropTypes.oneOf(["orange", "coral"]).isRequired,
+//   }),
 
-  arr: PropTypes.arrayOf(PropTypes.number),
-  func: PropTypes.func,
+//   arr: PropTypes.arrayOf(PropTypes.number),
+//   func: PropTypes.func,
 
-  // html element
-  node: PropTypes.node,
+//   // html element
+//   node: PropTypes.node,
 
-  // react element
-  ele: PropTypes.element,
-};
+//   // react element
+//   ele: PropTypes.element,
+// };
 
 // only in dev mode
 // stripped out in production
