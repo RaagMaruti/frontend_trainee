@@ -12,7 +12,7 @@ export default function WelcomeMessage({ prop }) {
           color: prop.color,
         }}
       >
-        Welcome to CRA-Router Home.
+        Welcome to Root Page.
       </h1>
       <Profile />
     </div>

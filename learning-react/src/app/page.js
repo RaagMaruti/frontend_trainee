@@ -3,6 +3,7 @@
 import { createContext } from "react";
 import WelcomeMessage from "../components/WelcomeMessage";
 import Counter from "../components/Counter";
+import "./i18n";
 
 export const ProfileContext = createContext();
 
