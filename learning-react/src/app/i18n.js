@@ -15,6 +15,7 @@ await i18n.use(initReactI18next).init({
           unspecific: "Something went wrong.",
           404: "The page was not found.",
         },
+        cash: "{{value}} USD",
       },
     },
     gu: {
