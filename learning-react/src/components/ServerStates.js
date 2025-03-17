@@ -1,111 +1,149 @@
 "use client";
 
-import { useQuery, useMutation, QueryClient } from "@tanstack/react-query";
+import {
+  useQuery,
+  useQueries,
+  useMutation,
+  QueryClient,
+  useQueryClient,
+  getQueryCache,
+} from "@tanstack/react-query";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false, // default: true
+      retryDelay: 500,
+    },
+  },
+});
 
-async function getPosts() {
-	try {
-		const response = await fetch(`https://jsonplaceholder.typicode.com/posts/`);
-    if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-		}
-    const data = await response.json();
-		return data;
-	} catch (error) {
-		return error;
-	}
+async function getPost(id) {
+  const response = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${id}`
+  );
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
+  const data = await response.json();
+  return data;
 }
 
-async function sendPost({ userId, id, title, body }) {
-	try {
-		const response = await fetch(
-			`https://jsonplaceholder.typicode.com/posts/`,
-			{
-				method: "POST",
-				body: JSON.stringify({
-					userId: userId,
-					id: id,
-					title: title,
-					body: body,
-				}),
-			}
-		);
-    if (!response.ok) {
-			throw new Error(`Response status: ${response.status}`);
-		}
-		const data = await response.json();
-		return data;
-	} catch (error) {
-		return error;
-	}
+async function sendPost({ userId, title, body }) {
+  const response = await fetch(`https://jsonplaceholder.typicode.com/posts/`, {
+    method: "POST",
+    body: JSON.stringify({
+      userId: userId,
+      title: title,
+      body: body,
+    }),
+  });
+  if (!response.ok) {
+    throw new Error(`Response status: ${response.status}`);
+  }
+  const data = await response.json();
+  return data;
 }
 
+export default function ServerState({ fetchPosts }) {
+  const queryClient = useQueryClient();
+  const queryCache = queryClient.getQueryCache();
 
-export default function ServerState() {
-	const postMutation = useMutation({
-		mutationKey: ["send_post"],
-		mutationFn: () => sendPost({ userId, id, title, body }),
-		onSuccess: () => {
-			queryClient.invalidateQueries(["get_posts"]);
-		},
-	});
+  // queryCache.subscribe((event) => {
+  //   console.log("Cache Updated:", event, queryCache);
+  // });
 
-	const getQuery = useQuery({
-		queryKey: ["get_posts"],
-		queryFn: () => getPosts(),
-		refetchInterval: 2000,
-		enabled: postMutation?.data?.userId !== null,
-		// staleTime
-	});
+  const postMutation = useMutation({
+    mutationKey: ["send_post"],
+    mutationFn: ({ userId, title, body }) => sendPost({ userId, title, body }),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["get_posts"]);
+    },
+    onMutate: () => {
+      console.log("Mutation");
+    },
+  });
 
-	if (getQuery.isLoading) {
-		return <div>Loading...</div>;
-	}
+  const getQueries = useQueries({
+    queries: fetchPosts.map((id) => {
+      return {
+        queryKey: ["get_posts", id],
+        queryFn: () => getPost(id),
+        // refetchInterval: 2000,
+        // enabled: false, will not fetch on mount, no refetch in background
+        retry: 3,
+      };
+    }),
+  });
 
-	if (getQuery.isError) {
-		return <div>{getQuery.error}</div>;
-	}
+  const getQuery = useQuery({
+    queryKey: ["get_post"],
+    queryFn: () => getPost(60),
+    initialData: {
+      id: 1001,
+      title: "cached until fetched",
+      body: "cached until fetched",
+    },
+    staleTime: 2000,
+  });
 
-	//   return <></>;
+  if (postMutation.isLoading) {
+    return <div>Loading...</div>;
+  }
 
-	if (postMutation.isLoading) {
-		return <div>Loading...</div>;
-	}
+  if (postMutation.isError) {
+    return <div>{postMutation.error}</div>;
+  }
 
-	if (postMutation.isError) {
-		return <div>{postMutation.error}</div>;
-	}
+  return (
+    <>
+      <button
+        onClick={() => {
+          postMutation.mutate({
+            userId: 1,
+            title: "my post",
+            body: "this is a dummy post, created by me",
+          });
+        }}
+      >
+        Click me to send data
+      </button>
+      {postMutation.data && (
+        <p style={{ margin: "1em" }}>
+          Post created on ID {postMutation.data.id}
+        </p>
+      )}
 
-	return (
-		<>
-			<button
-				onClick={() => {
-					postMutation.mutate({
-						userId: 1,
-						id: 1,
-						title: "my post",
-						body: "this is a dummy post, created by me",
-					});
-				}}
-			>
-				Click me to send data
-			</button>
-			{postMutation.data && (
-				<p style={{ margin: "1em" }}>
-					Post created on ID {postMutation.data.id}
-				</p>
-			)}
+      {getQuery.data && (
+        <p style={{ margin: "1em" }} key={getQuery.data.id}>
+          Fetching Data - post 60
+          <br />
+          Title: {getQuery.data.title}
+          <br />
+          Body: {getQuery.data.body}
+        </p>
+      )}
 
-			{getQuery.data && (
-				<ul>
-					{getQuery.data.map((i) => (
-						<li key={i.id}>{i.title}</li>
-					))}
-				</ul>
-			)}
-		</>
-	);
+      <div>
+        {getQueries.map((query, index) => {
+          if (query.isLoading)
+            return <p key={index}>Loading post {fetchPosts[index]}...</p>;
+          if (query.error)
+            return (
+              <p key={index * 10}>Error loading post {fetchPosts[index]}</p>
+            );
+          if (query.data)
+            return (
+              <p style={{ margin: "1em" }} key={query.data.id * 100}>
+                Title: {query.data.title}
+                <br />
+                Body: {query.data.body}
+              </p>
+            );
+        })}
+      </div>
+    </>
+  );
 }
 
 // 'https://jsonplaceholder.typicode.com/todos/1'
@@ -120,3 +158,11 @@ export default function ServerState() {
 
 // The status gives information about the data: Do we have any or not?
 // The fetchStatus gives information about the queryFn: Is it running or not?
+
+// cached data is considered stale
+
+// mode: online - normal, without connection fetchStatus === "paused"
+// mode: always - no "paused", if ot possible directly "error" status
+// mode: offlineFirst - one request, no reties on failure
+
+// gcTime = garbage collection time - default 5 mins
