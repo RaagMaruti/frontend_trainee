@@ -1,3 +1,3 @@
-export default function InvoiceStatus({ status }: { status: string }) {
-  return <div></div>;
+export default function Page() {
+  return <div>Welcome to Learning-Next Web App.</div>;
 }

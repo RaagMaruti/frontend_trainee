@@ -1,3 +1,34 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  height: 100px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  font-size: larger;
+  color: brown;
+  background-color: blanchedalmond;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  font-size: large;
+  color: brown;
+  background-color: blanchedalmond;
+}
