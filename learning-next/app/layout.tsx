@@ -3,36 +3,36 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 
 const poppins = Poppins({
-	weight: "500",
+  weight: "500",
 });
 
 export default function RootLayout({
-	children,
+  children,
 }: {
-	children: React.ReactNode;
+  children: React.ReactNode;
 }) {
-	return (
-		<html lang="en" className={poppins.className}>
-			<body>
-				<header>
-					<Link href="/">Home</Link>
-					<Link
-						href={{ pathname: "/about", query: null }}
-						prefetch={true}
-						replace
-						scroll
-					>
-						About
-					</Link>
-					<Link href="/post">Post</Link>
-				</header>
-				<div>{children}</div>
-				<footer className="footer">
-					<span>All Rights Reserved by me</span>
-				</footer>
-			</body>
-		</html>
-	);
+  return (
+    <html lang="en" className={poppins.className}>
+      <body>
+        <header>
+          <Link href="/">Home</Link>
+          <Link
+            href={{ pathname: "/about", query: null }}
+            prefetch={true}
+            replace
+            scroll
+          >
+            About
+          </Link>
+          <Link href="/post">Post</Link>
+        </header>
+        <div>{children}</div>
+        <footer className="footer">
+          <span>All Rights Reserved by me</span>
+        </footer>
+      </body>
+    </html>
+  );
 }
 
 // entry point for next app
@@ -43,7 +43,6 @@ export default function RootLayout({
 // route groups () - just semantics
 // [slug] - dynamic routes, access by params (async prop, React use() for client)
 // rendering only partial route changes
-
 
 // Link
 // prefetch - on entering the view port, only in production
