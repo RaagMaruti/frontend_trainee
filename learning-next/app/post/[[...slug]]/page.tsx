@@ -12,8 +12,8 @@ export default async function Page({ params }: any) {
 		<>
 			{slug ? (
 				<div>
-					{slug.map((s) => (
-						<span>{s}, </span>
+					{slug.map((s, i) => (
+						<span key={i}>{s}, </span>
 					))}
 					<Suspense fallback={<Loading />}>
 						{post && (

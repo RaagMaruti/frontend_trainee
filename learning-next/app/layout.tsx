@@ -3,7 +3,8 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 
 const poppins = Poppins({
-  weight: "500",
+	subsets: ["latin"],
+	weight: "500",
 });
 
 export default function RootLayout({

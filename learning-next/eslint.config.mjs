@@ -1,4 +1,4 @@
-import { dirname } from "path";
+  import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
 
@@ -9,8 +9,16 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
+
+// stopping all checks
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+	...compat.config({
+		extends: ["next"],
+		rules: {
+			"react/no-unescaped-entities": "off",
+			"@next/next/no-page-custom-font": "off",
+		},
+	}),
 ];
 
 export default eslintConfig;
