@@ -1,5 +1,32 @@
 {
   "compilerOptions": {
+    "baseUrl": "./app",
+    "paths": {
+      "@components/*": [
+        "components/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@constants/*": [
+        "constants/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@stories/*": [
+        "stories/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@contexts/*": [
+        "contexts/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+    },
     "target": "ES2017",
     "lib": [
       "dom",

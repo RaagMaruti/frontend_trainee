@@ -1,7 +1,8 @@
-import fetchPost from "./fetchPost";
-import Error from "./error";
+import fetchPost from "../../../utils/fetchPost";
 import Loading from "./loading";
 import { Suspense } from "react";
+
+import ChildFetch from "../../../components/ChildFetch";
 
 export default async function Page({ params }: any) {
   const { slug } = await params;
@@ -24,6 +25,7 @@ export default async function Page({ params }: any) {
               </div>
             )}
           </Suspense>
+          <ChildFetch />
         </div>
       ) : (
         <div>No slug </div>
