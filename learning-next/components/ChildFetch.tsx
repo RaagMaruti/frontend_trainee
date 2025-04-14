@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import fetchPost from "../utils/fetchPost";
 
-export default async function ChildFetch() {
+export default function ChildFetch() {
   let data = null;
   useEffect(() => {
     async function temp() {
