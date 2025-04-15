@@ -1,20 +1,28 @@
-"use client";
-
-import { useEffect } from "react";
 import fetchPost from "../utils/fetchPost";
 
-export default function ChildFetch() {
-  let data = null;
-  useEffect(() => {
-    async function temp() {
-      const post = (await fetchPost(11)) || null;
-      return post;
-    }
+async function temp() {
+  await fetch("https://jsonplaceholder.typicode.com/todos/1");
 
-    // const post = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-    // const data = await post.json();
-    data = temp();
-  }, []);
+  const post = (await fetchPost(1)) || null;
+  return post;
+}
 
-  return <> {data && <p>{data.id}</p>}</>;
+export default async function ChildFetch() {
+  let post = null;
+  post = await temp();
+
+  return (
+    <>
+      <br />
+      <br />
+      <div>in Child fetch component</div>
+      {post && (
+        <div>
+          <div>ID: {post.id}</div>
+          <div>Title: {post.title}</div>
+          <div>Body: {post.body}</div>
+        </div>
+      )}
+    </>
+  );
 }

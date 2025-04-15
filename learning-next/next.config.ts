@@ -1,7 +1,7 @@
 import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  pageExtensions: ["md", "mdx", "tsx"],
+  output: "export",
 };
 
 export default nextConfig;
