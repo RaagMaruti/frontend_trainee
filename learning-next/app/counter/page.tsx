@@ -3,6 +3,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
+  console.log("helllllllll");
   const [count, setCount] = useState(0);
   const pathname = usePathname();
 
@@ -12,7 +13,7 @@ export default function Page() {
 
   return (
     <div>
-      About page, {pathname}
+      <span>Counter Page, {pathname}</span>
       <button onClick={() => setCount((c) => c + 1)}>{count}</button>
     </div>
   );
