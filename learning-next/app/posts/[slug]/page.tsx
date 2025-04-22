@@ -10,8 +10,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: any) {
-  const { slug } = params;
-  console.log(slug);
+  const { slug } = await params;
   const post = (await fetchPost(slug)) || null;
 
   return (

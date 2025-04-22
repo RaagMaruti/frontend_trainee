@@ -1,8 +1,18 @@
 const originalFetch = fetch;
 
-global.fetch = async (input: RequestInfo) => {
-  console.log("fetch req:", input);
-  const response = await originalFetch(input);
-  console.log("res:", response.status);
+global.fetch = async (input: RequestInfo, init?: RequestInit) => {
+  console.log("request:", {
+    url: input,
+    method: init?.method || "GET",
+    body: init?.body || {},
+  });
+
+  const response = await originalFetch(input, init);
+
+  console.log("response:", {
+    status: response.status,
+    url: response.url,
+  });
+
   return response;
 };
