@@ -2,6 +2,10 @@ body {
   margin: 0;
 }
 
+body > div {
+  margin: 1rem;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -28,4 +32,8 @@ footer {
   font-size: large;
   color: brown;
   background-color: blanchedalmond;
+}
+
+button {
+  margin: 1rem;
 }

@@ -1,6 +1,10 @@
 const originalFetch = fetch;
 
+let globalReqNum = 0;
+
 global.fetch = async (input: RequestInfo, init?: RequestInit) => {
+  console.log("Global Request Number: ", ++globalReqNum);
+
   console.log("request:", {
     url: input,
     method: init?.method || "GET",

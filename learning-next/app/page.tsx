@@ -7,10 +7,10 @@ export default function Page() {
       Welcome to Learning-Next Web App
       <button
         onClick={() => {
-          redirect("/about");
+          redirect("/counter");
         }}
       >
-        Go to about
+        Go to counter
       </button>
     </div>
   );

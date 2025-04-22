@@ -12,10 +12,8 @@ export default function Page() {
 
   return (
     <div>
-      <div>About page, {pathname}</div>
-      <div>
-        <button onClick={() => setCount((c) => c + 1)}>{count}</button>
-      </div>
+      About page, {pathname}
+      <button onClick={() => setCount((c) => c + 1)}>{count}</button>
     </div>
   );
 }
