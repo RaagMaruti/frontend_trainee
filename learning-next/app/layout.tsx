@@ -27,7 +27,8 @@ export default function RootLayout({
           >
             Counter
           </Link>
-          <Link href="/post">Post</Link>
+          <Link href="/posts/1">Post</Link>
+          <Link href="/create_post">Create Post</Link>
         </header>
         <div>{children}</div>
         <footer className="footer">
