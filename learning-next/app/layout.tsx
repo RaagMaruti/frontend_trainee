@@ -1,6 +1,7 @@
 import "../styles/base.css";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 import "../utils/fetchWithLogging";
 
 const poppins = Poppins({
@@ -29,6 +30,7 @@ export default function RootLayout({
           </Link>
           <Link href="/posts/1">Post</Link>
           <Link href="/create_post">Create Post</Link>
+          <Script src="ticks.js" strategy="lazyOnload"></Script>
         </header>
         <div>{children}</div>
         <footer className="footer">

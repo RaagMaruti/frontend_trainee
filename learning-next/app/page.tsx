@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import Script from "next/script";
 
 export default function Page() {
   const router = useRouter();
@@ -32,7 +31,6 @@ export default function Page() {
       <video controls src="video.mp4">
         Video nathi chalto aa browser ma
       </video>
-      <Script src="ticks.js" strategy="lazyOnload"></Script>
     </div>
   );
 }
