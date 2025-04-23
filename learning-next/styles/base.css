@@ -2,7 +2,14 @@ body {
   margin: 0;
 }
 
-body > div {
+a {
+  text-decoration: none;
+}
+
+body > div,
+img,
+video,
+button {
   margin: 1rem;
 }
 
@@ -32,8 +39,4 @@ footer {
   font-size: large;
   color: brown;
   background-color: blanchedalmond;
-}
-
-button {
-  margin: 1rem;
 }
