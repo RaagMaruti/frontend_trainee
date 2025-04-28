@@ -1,5 +1,5 @@
 // unconditionally we can use revalidatePath / Tag
-import { revalidateTag } from "next/cache";
+// import { revalidateTag } from "next/cache";
 
 export default async function createPost() {
   try {
@@ -8,7 +8,6 @@ export default async function createPost() {
       method: "POST",
       body: JSON.stringify({ id: 101, title: "my post" }),
     });
-    console.log("hello");
     const post = await response.json();
     return post;
   } catch (error) {

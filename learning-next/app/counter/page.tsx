@@ -3,7 +3,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
-  console.log("helllllllll");
   const [count, setCount] = useState(0);
   const pathname = usePathname();
 
