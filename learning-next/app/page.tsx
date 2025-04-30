@@ -9,6 +9,7 @@ export default function Page() {
     <div>
       Welcome to Learning-Next Web App
       <button
+        name="counter"
         onClick={() => {
           router.push("/counter");
         }}
