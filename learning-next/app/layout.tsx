@@ -30,6 +30,8 @@ export default function RootLayout({
           </Link>
           <Link href="/posts/1">Post</Link>
           <Link href="/create_post">Create Post</Link>
+          <Link href="/gsap">GSAP</Link>
+          <Link href="/motion">Motion</Link>
           <Script src="/ticks.js" strategy="lazyOnload"></Script>
         </header>
         <div>{children}</div>

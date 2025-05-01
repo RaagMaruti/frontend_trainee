@@ -4,10 +4,13 @@
 export default async function createPost() {
   try {
     // revalidateTag("post");
-    const response = await fetch(process.env.POST_URL, {
-      method: "POST",
-      body: JSON.stringify({ id: 101, title: "my post" }),
-    });
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/todos/",
+      {
+        method: "POST",
+        body: JSON.stringify({ id: 101, title: "my post" }),
+      }
+    );
     const post = await response.json();
     return post;
   } catch (error) {

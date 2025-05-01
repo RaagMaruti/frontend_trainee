@@ -6,10 +6,13 @@ export const revalidate = 3600; // invalidate every hour
 
 export default async function fetchPost(id: number) {
   try {
-    const response = await fetch(process.env.POST_URL + id, {
-      cache: "force-cache",
-      next: { tags: ["posts"] },
-    });
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/todos/" + id,
+      {
+        cache: "force-cache",
+        next: { tags: ["posts"] },
+      }
+    );
     const post = await response.json();
     return post;
   } catch (error) {
