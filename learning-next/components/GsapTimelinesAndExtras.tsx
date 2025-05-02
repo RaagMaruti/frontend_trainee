@@ -21,11 +21,13 @@ function GsapTimeline() {
 
   useLayoutEffect(() => {
     const tl = gsap.timeline();
-    tl.to(boxRef1.current, { x: 100, duration: 0.5 }).to(
-      boxRef2.current,
-      { x: 100, duration: 0.5 },
-      "+=0.2"
-    );
+    tl.to(boxRef1.current, {
+      x: 100,
+      duration: 0.5,
+    }).to(boxRef2.current, {
+      x: 100,
+      duration: 0.5,
+    });
   }, []);
 
   return (
@@ -49,7 +51,7 @@ function GsapStagger() {
 
   useLayoutEffect(() => {
     gsap.from(containerRef.current?.children, {
-      y: -40,
+      y: 40,
       opacity: 0,
       duration: 0.6,
       stagger: 0.2,
@@ -69,15 +71,15 @@ function GsapStagger() {
   );
 }
 
-// 3. Repeat & Delay — repeat animation with delay
+// 3. Repeat & Delay — infinite repeat animation with delay
 function GsapRepeatDelay() {
   const ref = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     gsap.to(ref.current, {
       rotate: 360,
-      duration: 1,
-      repeat: 2,
+      duration: 0.5,
+      repeat: Infinity,
       repeatDelay: 0.5,
     });
   }, []);
@@ -86,9 +88,7 @@ function GsapRepeatDelay() {
     <div
       ref={ref}
       style={{ width: 80, height: 80, backgroundColor: "#f97316" }}
-    >
-      {/* Spins 3 times with pause between */}
-    </div>
+    ></div>
   );
 }
 

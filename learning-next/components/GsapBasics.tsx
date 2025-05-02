@@ -46,7 +46,7 @@ function GsapFrom() {
   useLayoutEffect(() => {
     gsap.from(boxRef.current, {
       opacity: 0,
-      y: -50,
+      y: 50,
       duration: 1,
     });
   }, []);

@@ -25,7 +25,6 @@ function HorizontalScroll() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray(".panel") as HTMLElement[];
-      const totalScroll = (sections.length - 1) * 100;
 
       gsap.to(scrollerRef.current, {
         xPercent: -100 * (sections.length - 1),
@@ -93,6 +92,17 @@ function ContextScopedAnimation() {
 
   return (
     <div ref={scopeRef}>
+      <div
+        className="dot"
+        style={{
+          width: 60,
+          height: 60,
+          backgroundColor: "#ef4444",
+        }}
+      >
+        {/* Animated via .dot inside context */}
+      </div>
+      <br />
       <div
         className="dot"
         style={{

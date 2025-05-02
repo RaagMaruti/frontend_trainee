@@ -8,7 +8,6 @@ export default function GsapText() {
     <div style={{ padding: "2rem", display: "grid", gap: "3rem" }}>
       <FadeInCharacters text="Hello GSAP" />
       <TypingEffect text="Typing with GSAP" />
-      <ClipReveal text="Revealed Text" />
     </div>
   );
 }
@@ -21,7 +20,7 @@ function FadeInCharacters({ text }: { text: string }) {
     gsap.from(containerRef.current?.children, {
       opacity: 0,
       y: 10,
-      stagger: 0.05,
+      stagger: 0.1,
       duration: 0.4,
     });
   }, []);
@@ -54,30 +53,5 @@ function TypingEffect({ text }: { text: string }) {
 
   return (
     <div ref={textRef} style={{ fontFamily: "monospace", whiteSpace: "pre" }} />
-  );
-}
-
-// 3. Clip path reveal animation (like wipe)
-function ClipReveal({ text }: { text: string }) {
-  const spanRef = useRef<HTMLSpanElement>(null);
-
-  useLayoutEffect(() => {
-    gsap.to(spanRef.current, {
-      clipPath: "inset(0 0% 0 0)",
-      duration: 0.8,
-    });
-  }, []);
-
-  return (
-    <span
-      ref={spanRef}
-      style={{
-        display: "inline-block",
-        clipPath: "inset(0 100% 0 0)",
-        overflow: "hidden",
-      }}
-    >
-      {text}
-    </span>
   );
 }
