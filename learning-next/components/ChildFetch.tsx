@@ -23,6 +23,27 @@ export default async function ChildFetch() {
           <div>Body: {post.body}</div>
         </div>
       )}
+      <ChildChildFetch />
+    </>
+  );
+}
+
+async function ChildChildFetch() {
+  let post = null;
+  post = await temp();
+
+  return (
+    <>
+      <br />
+      <br />
+      <div>in Child fetch component</div>
+      {post && (
+        <div>
+          <div>ID: {post.id}</div>
+          <div>Title: {post.title}</div>
+          <div>Body: {post.body}</div>
+        </div>
+      )}
     </>
   );
 }
