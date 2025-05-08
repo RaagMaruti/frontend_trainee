@@ -3,6 +3,8 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 import Script from "next/script";
 import "../utils/fetchWithLogging";
+import "../components/EnableClientLogs";
+import EnableClientLogs from "../components/EnableClientLogs";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.className}>
       <body>
+        <EnableClientLogs />
         <header>
           <Link href="/">Home</Link>
           <Link
