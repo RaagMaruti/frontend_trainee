@@ -1,21 +1,9 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 export default function Page() {
-  const router = useRouter();
   return (
     <div>
       Welcome to Learning-Next Web App
-      <button
-        name="counter"
-        onClick={() => {
-          router.push("/counter");
-        }}
-      >
-        Go to counter
-      </button>
       <br />
       <Image
         src="/image.png"
