@@ -27,18 +27,14 @@ export default function RootLayout({
           </Link>
           <Link
             href={{ pathname: "/counter", query: null }}
-            prefetch={true}
+            prefetch={false}
             replace
             scroll
           >
             Counter
           </Link>
-          <Link prefetch={false} href="/posts/1">
-            Post
-          </Link>
-          <Link prefetch={false} href="/create_post">
-            Create Post
-          </Link>
+          <Link href="/posts/1">Post</Link>
+          <Link href="/create_post">Create Post</Link>
           <Link prefetch={false} href="/gsap">
             GSAP
           </Link>
@@ -64,6 +60,7 @@ use redirect for server
 route groups () - just semantics
 [slug] - dynamic routes, access by params (async prop, React use() for client)
 rendering only partial route changes
+prefetch default is true
 
 */
 
