@@ -28,7 +28,6 @@ export default async function Page({ params }: any) {
             <div>
               <div>ID: {post.id}</div>
               <div>Title: {post.title}</div>
-              <div>Body: {post.body}</div>
             </div>
           )}
 

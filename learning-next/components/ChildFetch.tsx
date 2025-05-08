@@ -20,7 +20,6 @@ export default async function ChildFetch() {
         <div>
           <div>ID: {post.id}</div>
           <div>Title: {post.title}</div>
-          <div>Body: {post.body}</div>
         </div>
       )}
       <ChildChildFetch />
@@ -41,7 +40,6 @@ async function ChildChildFetch() {
         <div>
           <div>ID: {post.id}</div>
           <div>Title: {post.title}</div>
-          <div>Body: {post.body}</div>
         </div>
       )}
     </>

@@ -8,7 +8,6 @@ global.fetch = async (input: RequestInfo, init?: RequestInit) => {
   console.log("request:", {
     url: input,
     method: init?.method || "GET",
-    body: init?.body || {},
   });
 
   const response = await originalFetch(input, init);
