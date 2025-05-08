@@ -35,7 +35,7 @@ async function ChildChildFetch() {
     <>
       <br />
       <br />
-      <div>in Child fetch component</div>
+      <div>in Child-Child fetch component</div>
       {post && (
         <div>
           <div>ID: {post.id}</div>

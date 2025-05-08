@@ -36,8 +36,6 @@ export default async function Page({ params }: any) {
 
           <ChildFetch />
           <ChildFetch />
-          <ChildFetch />
-          <ChildFetch />
           <Basic />
         </div>
       ) : (
