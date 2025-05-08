@@ -22,7 +22,9 @@ export default function RootLayout({
       <body>
         <EnableClientLogs />
         <header>
-          <Link href="/">Home</Link>
+          <Link prefetch={false} href="/">
+            Home
+          </Link>
           <Link
             href={{ pathname: "/counter", query: null }}
             prefetch={true}
@@ -31,10 +33,18 @@ export default function RootLayout({
           >
             Counter
           </Link>
-          <Link href="/posts/1">Post</Link>
-          <Link href="/create_post">Create Post</Link>
-          <Link href="/gsap">GSAP</Link>
-          <Link href="/motion">Motion</Link>
+          <Link prefetch={false} href="/posts/1">
+            Post
+          </Link>
+          <Link prefetch={false} href="/create_post">
+            Create Post
+          </Link>
+          <Link prefetch={false} href="/gsap">
+            GSAP
+          </Link>
+          <Link prefetch={false} href="/motion">
+            Motion
+          </Link>
           <Script src="/ticks.js" strategy="lazyOnload"></Script>
         </header>
         <div>{children}</div>
