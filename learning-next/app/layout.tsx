@@ -33,7 +33,7 @@ export default function RootLayout({
           >
             Counter
           </Link>
-          <Link href="/posts">All Posts</Link>
+          <Link href="/all_posts">All Posts</Link>
           <Link href="/posts/1">Post</Link>
           <Link href="/create_post">Create Post</Link>
           <Link prefetch={false} href="/gsap">
