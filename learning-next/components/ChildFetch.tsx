@@ -1,16 +1,7 @@
 import fetchPost from "../utils/fetchPost";
 
-async function temp() {
-  await fetch("https://jsonplaceholder.typicode.com/todos/1");
-
-  const post = (await fetchPost(1)) || null;
-  return post;
-}
-
 export default async function ChildFetch() {
-  let post = null;
-  post = await temp();
-
+  const post = (await fetchPost(1)) || null;
   return (
     <>
       <br />
@@ -28,9 +19,7 @@ export default async function ChildFetch() {
 }
 
 async function ChildChildFetch() {
-  let post = null;
-  post = await temp();
-
+  const post = (await fetchPost(1)) || null;
   return (
     <>
       <br />
