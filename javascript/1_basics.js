@@ -11,7 +11,7 @@ if (1 < 2) {
   // none can work on const
 }
 
-// only "a" can be accessed outside if block
+// only "a" can be accessed outside the if block
 console.log(a);
 
 
